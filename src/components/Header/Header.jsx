@@ -1,11 +1,13 @@
 import classes from "./styles/headerStyle.module.css";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export function Header() {
-  const isLoggedIn = false;
+  const isLoggedIn = true;
+  const user = "Ваня";
 
   const LoggedIn = () => (
     <>
+      <div className={classes.greeting}>Привет, {user}!</div>
       <Link to="/favorites">Избранное</Link>
       <Link to="/history">История</Link>
       <Link to="/logout">Выйти</Link>

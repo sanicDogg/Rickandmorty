@@ -1,6 +1,4 @@
-$logoColor: #c8553d;
-$linkColor: #588b8b;
-$bgColor: #ffd5c2;
+@import "../../../styles/_var.scss";
 
 header {
   display: flex;
@@ -29,7 +27,12 @@ header {
 
 .menu {
   display: inline-flex;
+  align-items: center;
   gap: 100px;
+
+  .greeting {
+    color: $greetingColor;
+  }
 
   a {
 

@@ -23,7 +23,11 @@ header a:visited, header a:link {
 
 .menu {
   display: inline-flex;
+  align-items: center;
   gap: 100px;
+}
+.menu .greeting {
+  color: #d37764;
 }
 .menu a:visited, .menu a:link {
   color: #588b8b;
