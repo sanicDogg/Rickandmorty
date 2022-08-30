@@ -56,14 +56,14 @@ function App() {
   ];
 
   return (
-    <div>
+    <>
       <Header />
 
       <Routes>
         <Route path="/" element={<Cards cardsData={cards} />} />
         <Route path="/favorites" element={<Cards cardsData={cards} />} />
       </Routes>
-    </div>
+    </>
   );
 }
 export default App;

@@ -1,0 +1,40 @@
+$logoColor: #c8553d;
+$linkColor: #588b8b;
+$bgColor: #ffd5c2;
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px 70px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  background: $bgColor;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+
+  a {
+    text-decoration: none;
+
+    &:visited, &:link {
+      color: $logoColor;
+    }
+  }
+}
+
+.logo {
+  font-size: 35px;
+  display: inline-block;
+}
+
+.menu {
+  display: inline-flex;
+  gap: 100px;
+
+  a {
+
+    &:visited, &:link {
+      color: $linkColor;
+    }
+  }
+}

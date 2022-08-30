@@ -1,11 +1,30 @@
 import classes from "./styles/headerStyle.module.css";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
 export function Header() {
+  const isLoggedIn = false;
+
+  const LoggedIn = () => (
+    <>
+      <Link to="/favorites">Избранное</Link>
+      <Link to="/history">История</Link>
+      <Link to="/logout">Выйти</Link>
+    </>
+  );
+
+  const Guest = () => (
+    <>
+      <Link to="/signin">Войти</Link>
+      <Link to="/signup">Регистрация</Link>
+    </>
+  );
+
   return (
-    <div className={classes.header}>
-      <Link to="/">Главная</Link>
-      <Link to="favorites">Избранное</Link>
-    </div>
+    <header>
+      <Link to="/" className={classes.logo}>Rick and Morty</Link>
+      <nav className={classes.menu}>
+        {isLoggedIn ? LoggedIn() : Guest()}
+      </nav>
+    </header>
   );
 }

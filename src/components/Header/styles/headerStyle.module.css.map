@@ -1,9 +1,1 @@
-{
-    "version": 3,
-    "mappings": "",
-    "sources": [
-        "headerStyle.module.scss"
-    ],
-    "names": [],
-    "file": "headerStyle.module.css"
-}
+{"version":3,"sourceRoot":"","sources":["headerStyle.module.scss"],"names":[],"mappings":"AAIA;EACE;EACA;EACA;EACA;EACA;EACA;EACA,YATQ;EAUR;EACA;;AAEA;EACE;;AAEA;EACE,OAnBM;;;AAwBZ;EACE;EACA;;;AAGF;EACE;EACA;;AAIE;EACE,OAnCM","file":"headerStyle.module.css"}
