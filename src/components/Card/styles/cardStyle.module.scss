@@ -1,0 +1,45 @@
+@import "../../../styles/_var.scss";
+
+.card{
+    padding: 24px;
+    position: relative;
+    &:hover{
+        padding:0;
+        box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.24), 0px 9px 18px rgba(0, 0, 0, 0.18);
+        .card__like {
+            display: block;
+        }
+        .card__button{
+            display: block;
+        }
+    }
+    &__img{
+        height: 100%;
+        width: 100%;
+    }
+    &__like{
+        position: absolute;
+        display: none;
+        right: 24px;
+        bottom: 24px;
+        cursor: pointer;
+    }
+    &__button{
+        position: absolute;
+        left: 24px;
+        bottom: 30px;
+        cursor: pointer;
+        border:none;
+        padding: 5px 10px;
+        background-color:$mainColor;
+        color:$textColor;
+        display: none;
+        border-radius: 20px;
+    }
+}
+
+
+
+
+
+

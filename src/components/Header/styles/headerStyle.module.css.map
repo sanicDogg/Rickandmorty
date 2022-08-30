@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "headerStyle.module.scss"
+    ],
+    "names": [],
+    "file": "headerStyle.module.css"
+}
