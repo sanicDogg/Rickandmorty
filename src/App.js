@@ -1,6 +1,7 @@
 import React from "react";
 import { Cards, Header } from "./components";
 import { Route, Routes } from "react-router-dom";
+import { Search } from "./components/";
 import "./App.css";
 
 function App() {
@@ -58,7 +59,7 @@ function App() {
   return (
     <div>
       <Header />
-
+      <Search />
       <Routes>
         <Route path="/" element={<Cards cardsData={cards} />} />
         <Route path="/favorites" element={<Cards cardsData={cards} />} />
