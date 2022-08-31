@@ -1,4 +1,5 @@
 import classes from "./styles/cardsStyle.module.css";
+
 import { Card } from "../Card/Card";
 
 export function Cards(cardsData) {
@@ -10,6 +11,7 @@ export function Cards(cardsData) {
         return (
           <Card
             key={card.id}
+            id={card.id}
             url={card.url}
             name={card.name}
             isCardLike={card.isLike}
