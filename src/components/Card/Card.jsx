@@ -11,18 +11,11 @@ export function Card({ url, name, id, isCardLike }) {
       <img
         data-url={url}
         data-id={id}
+        data-name={name}
         className={classes.card__like}
-        src={dislike}
+        src={isCardLike ? like : dislike}
         alt="like"
       />
-      {isCardLike && (
-        <img
-          src={like}
-          data-id={id}
-          className={classes.card__like}
-          alt="like"
-        />
-      )}
     </div>
   );
 }
