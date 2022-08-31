@@ -1,0 +1,13 @@
+.container {
+  padding: 50px;
+}
+
+.search {
+  padding: 20px 10px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 18px;
+  text-align: center;
+}
+
+/*# sourceMappingURL=searchStyle.module.css.map */

@@ -3,6 +3,7 @@ import { selectCards, selectFavorites } from "./app/reducers/cards/cardsSlice";
 import { useSelector } from "react-redux";
 import { Cards, Header } from "./components";
 import { Route, Routes } from "react-router-dom";
+import { Search } from "./components/";
 import "./App.css";
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
   return (
     <>
       <Header />
+      <Search />
       <Routes>
         <Route path="/" element={<Cards cardsData={cards} />} />
         <Route path="/favorites" element={<Cards cardsData={favorites} />} />
