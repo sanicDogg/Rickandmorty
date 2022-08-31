@@ -2,26 +2,20 @@
   padding: 24px;
   position: relative;
 }
-
 .card:hover {
   padding: 0;
-  -webkit-box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.24), 0px 9px 18px rgba(0, 0, 0, 0.18);
-          box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.24), 0px 9px 18px rgba(0, 0, 0, 0.18);
+  box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.24), 0px 9px 18px rgba(0, 0, 0, 0.18);
 }
-
 .card:hover .card__like {
   display: block;
 }
-
 .card:hover .card__button {
   display: block;
 }
-
 .card__img {
   height: 100%;
   width: 100%;
 }
-
 .card__like {
   position: absolute;
   display: none;
@@ -29,7 +23,6 @@
   bottom: 24px;
   cursor: pointer;
 }
-
 .card__button {
   position: absolute;
   left: 24px;
@@ -38,8 +31,9 @@
   border: none;
   padding: 5px 10px;
   background-color: #3b5998;
-  color: #ffff;
+  color: white;
   display: none;
   border-radius: 20px;
 }
+
 /*# sourceMappingURL=cardStyle.module.css.map */
