@@ -59,7 +59,7 @@ const cardsSlice = createSlice({
   initialState,
 
   reducers: {
-    togleFavorites: (state, action) => {
+    toggleFavorites: (state, action) => {
       if (state.favorites.find((card) => card.id === action.payload.id)) {
         return {
           ...state,
@@ -86,7 +86,7 @@ const cardsSlice = createSlice({
   },
 });
 
-export const { togleFavorites } = cardsSlice.actions;
+export const { toggleFavorites } = cardsSlice.actions;
 
 export const selectCards = (state) => state.cards.cards;
 
