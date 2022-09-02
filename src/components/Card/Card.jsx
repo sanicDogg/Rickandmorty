@@ -2,18 +2,18 @@ import classes from "./styles/cardStyle.module.css";
 import dislike from "../../img/icons/emptyHeart.svg";
 import like from "../../img/icons/fullHeart.svg";
 import PropTypes from "prop-types";
-import { togleFavorites } from "../../app/reducers/cards/cardsSlice";
+import { toggleFavorites } from "../../app/reducers/cards/cardsSlice";
 import { useDispatch } from "react-redux";
 
 export function Card({ url, name, id, isCardLike }) {
   const dispatch = useDispatch();
 
-  const clickHandler = (event) => {
+  const toggleFavoritesClickHandler = () => {
     dispatch(
-      togleFavorites({
-        id: id,
-        name: name,
-        url: url,
+      toggleFavorites({
+        id,
+        name,
+        url,
         isLike: true,
       })
     );
@@ -24,7 +24,7 @@ export function Card({ url, name, id, isCardLike }) {
       <img className={classes.card__img} src={url} alt={name} />
       <button className={classes.card__button}>Подробнее</button>
       <img
-        onClick={clickHandler}
+        onClick={toggleFavoritesClickHandler}
         className={classes.card__like}
         src={isCardLike ? like : dislike}
         alt="like"

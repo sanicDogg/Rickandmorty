@@ -1,22 +1,16 @@
 import React from "react";
-import { selectCards, selectFavorites } from "./app/reducers/cards/cardsSlice";
-import { useSelector } from "react-redux";
-import { Cards, Header } from "./components";
+import { Home, Favorites } from "./pages";
+import { Header } from "./components";
 import { Route, Routes } from "react-router-dom";
-import { Search } from "./components/";
 import "./App.css";
 
 function App() {
-  const cards = useSelector(selectCards);
-  const favorites = useSelector(selectFavorites);
-
   return (
     <>
       <Header />
-      <Search />
       <Routes>
-        <Route path="/" element={<Cards cardsData={cards} />} />
-        <Route path="/favorites" element={<Cards cardsData={favorites} />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/favorites" element={<Favorites />} />
       </Routes>
     </>
   );
