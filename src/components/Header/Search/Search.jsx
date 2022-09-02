@@ -3,7 +3,7 @@ import classes from "./styles/searchStyle.module.css";
 
 export function Search() {
 
-  const handleChange = (newValue) => {
+  const search = (newValue) => {
     console.log("Changed " + newValue);
   }
 
@@ -14,7 +14,7 @@ export function Search() {
         debounceTimeout={500}
         placeholder="Панель поиска"
         className={classes.search}
-        onChange={event => handleChange(event.target.value)}/>
+        onChange={event => search(event.target.value)}/>
     </div>
   )
 }
