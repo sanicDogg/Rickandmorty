@@ -2,58 +2,58 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   cards: {
-    asdafacac: {
-      id: "asdafacac",
+    1: {
+      id: 1,
       name: "mr. Meeseeks",
       status: "Alive",
       species: "Humanoid",
       url: "https://picsum.photos/id/231/300/300",
     },
-    asafafasfafafs: {
-      id: "asafafasfafafs",
+    2: {
+      id: 2,
       name: "mr. Meeseeks",
       status: "Alive",
       species: "Humanoid",
 
       url: "https://picsum.photos/id/232/300/300",
     },
-    asdadadsad: {
-      id: "asdadadsad",
+    3: {
+      id: 3,
       name: "mr. Meeseeks",
       status: "Alive",
       species: "Humanoid",
       url: "https://picsum.photos/id/233/300/300",
     },
-    asdasdadsad: {
-      id: "asdasdadsad",
+    4: {
+      id: 4,
       name: "mr. Meeseeks",
       status: "Alive",
       species: "Humanoid",
       url: "https://picsum.photos/id/234/300/300",
     },
-    asdadafasdfafasss: {
-      id: "asdadafasdfafasss",
+    5: {
+      id: 5,
       name: "mr. Meeseeks",
       status: "Alive",
       species: "Humanoid",
       url: "https://picsum.photos/id/235/300/300",
     },
-    sdasdq1w1e3esdww2w2d: {
-      id: "sdasdq1w1e3esdww2w2d",
+    6: {
+      id: 6,
       name: "mr. Meeseeks",
       status: "Alive",
       species: "Humanoid",
       url: "https://picsum.photos/id/236/300/300",
     },
-    asdadasfasfsafafasf: {
-      id: "asdadasfasfsafafasf",
+    7: {
+      id: 7,
       name: "mr. Meeseeks",
       status: "Alive",
       species: "Humanoid",
       url: "https://picsum.photos/id/237/300/300",
     },
-    asdasdasfafasfasxxasdf: {
-      id: "asdasdasfafasfasxxasdf",
+    8: {
+      id: 8,
       name: "mr. Meeseeks",
       status: "Alive",
       species: "Humanoid",
@@ -61,14 +61,14 @@ const initialState = {
     },
   },
   cardsId: [
-    "asdafacac",
-    "asafafasfafafs",
-    "asdadadsad",
-    "asdasdadsad",
-    "asdadafasdfafasss",
-    "sdasdq1w1e3esdww2w2d",
-    "asdadasfasfsafafasf",
-    "asdasdasfafasfasxxasdf",
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
   ],
   favorites: new Set([]),
 };

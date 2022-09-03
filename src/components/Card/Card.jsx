@@ -6,13 +6,14 @@ import { toggleFavorites } from "../../features";
 
 import dislike from "../../img/icons/emptyHeart.svg";
 import like from "../../img/icons/fullHeart.svg";
-
 import classes from "./styles/cardStyle.module.css";
 
 export function Card({ id, isButtonVisible = true }) {
   const dispatch = useDispatch();
 
   const card = useSelector((state) => state.cards.cards[id]);
+
+  // const {data = [], isLoading} = useGetCharacterQuery(id);
 
   const isCardInFavorites = useSelector((state) =>
     state.cards.favorites.has(id)
@@ -21,6 +22,8 @@ export function Card({ id, isButtonVisible = true }) {
   const onToggleFavorites = () => {
     dispatch(toggleFavorites(id));
   };
+
+  // if (isLoading) return <h1>Loading...</h1>;
 
   return (
     <div className={classes.card}>
@@ -41,6 +44,6 @@ export function Card({ id, isButtonVisible = true }) {
 }
 
 Card.propTypes = {
-  id: PropTypes.string,
+  id: PropTypes.number,
   isButtonVisible: bool,
 };

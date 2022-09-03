@@ -1,14 +1,11 @@
 import classes from "./styles/cardsStyle.module.css";
+import { Card } from "../Card";
 
-import { Card } from "../Card/Card";
-
-export function Cards({ cardsData }) {
-  const cards = cardsData;
-
+export function Cards({cardsData}) {
   return (
     <div className={classes.cards}>
-      {cards.map((id) => {
-        return <Card key={id} id={id} />;
+      {cardsData.map((id) => {
+        return <Card key={id} id={id}/>;
       })}
     </div>
   );
