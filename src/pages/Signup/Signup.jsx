@@ -1,3 +1,3 @@
 export function SignUp() {
-  return <main></main>;
+  return <div></div>;
 }

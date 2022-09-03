@@ -1,13 +1,13 @@
 import { Cards, Search } from "../../components";
-import { selectCards } from "../../app/reducers/cards/cardsSlice";
+import { selectCards } from "../../features";
 import { useSelector } from "react-redux";
 
 export function Home() {
   const cards = useSelector(selectCards);
   return (
-    <main>
+    <div>
       <Search />
       <Cards cardsData={cards} />
-    </main>
+    </div>
   );
 }

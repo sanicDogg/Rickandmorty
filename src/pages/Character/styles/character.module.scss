@@ -1,0 +1,15 @@
+@import "../../../styles/_var.scss";
+
+.charPage{
+    display: flex;
+    justify-content: center;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 40px;
+    &__itemWrapper{
+    height: 500px;
+    width: 500px;
+  
+    }
+
+}
