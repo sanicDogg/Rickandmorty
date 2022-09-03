@@ -6,7 +6,6 @@ import {selectCards} from "../../features";
 export function Home() {
   const {data = []} = useGetAllCharactersQuery(13);
   const cards = useSelector(selectCards);
-  console.log(cards);
 
   return (
     <main>

@@ -28,6 +28,7 @@ export function Card({ id, isButtonVisible = true }) {
   return (
     <div className={classes.card}>
       <img className={classes.card__img} src={card.url} alt={card.name} />
+      {/*<img className={classes.card__img} src={data.image} alt={card.name} />*/}
       {isButtonVisible && (
         <Link className={classes.card__link} to={`/character/${id}`}>
           <button className={classes.card__button}>Подробнее</button>
