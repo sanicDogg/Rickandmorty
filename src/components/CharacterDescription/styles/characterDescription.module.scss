@@ -1,0 +1,9 @@
+@import "../../../styles/_var.scss";
+
+.description{
+    padding: 15px;
+    &__text{
+    color: $logoColor;
+    margin-bottom: 30px;
+    }
+}

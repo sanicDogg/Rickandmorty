@@ -1,6 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { apiSlice } from "../features/api/apiSlice";
-import cardsSlice from "./reducers/cards/cardsSlice";
+import { enableMapSet } from "immer";
+import cardsSlice from "../features/cards/cardsSlice";
+
+enableMapSet();
 
 export const store = configureStore({
   reducer: {

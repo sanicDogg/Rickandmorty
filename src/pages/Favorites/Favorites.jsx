@@ -1,12 +1,13 @@
-import { Cards } from "../../components";
-import { selectFavorites } from "../../app/reducers/cards/cardsSlice";
 import { useSelector } from "react-redux";
+import { selectFavorites } from "../../features";
+import { Cards } from "../../components";
 
 export function Favorites() {
   const cards = useSelector(selectFavorites);
+
   return (
-    <main>
+    <div>
       <Cards cardsData={cards} />
-    </main>
+    </div>
   );
 }
