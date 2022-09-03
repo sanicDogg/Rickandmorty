@@ -1,0 +1,17 @@
+.charPage {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.charPage__itemWrapper {
+  height: 500px;
+  width: 500px;
+}
+/*# sourceMappingURL=character.module.css.map */
