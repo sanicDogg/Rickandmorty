@@ -1,13 +1,13 @@
 import { Cards, Search } from "../../components";
-import { selectCards } from "../../app/reducers/cards/cardsSlice";
-import { useSelector } from "react-redux";
+import { useGetAllCharactersQuery } from "../../features/api/apiSlice";
 
 export function Home() {
-  const cards = useSelector(selectCards);
+  const {data = []} = useGetAllCharactersQuery(13);
+
   return (
     <main>
       <Search />
-      <Cards cardsData={cards} />
+      <Cards cardsData={data.results || data} />
     </main>
   );
 }

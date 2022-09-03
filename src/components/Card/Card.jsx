@@ -2,7 +2,7 @@ import classes from "./styles/cardStyle.module.css";
 import dislike from "../../img/icons/emptyHeart.svg";
 import like from "../../img/icons/fullHeart.svg";
 import PropTypes from "prop-types";
-import { toggleFavorites } from "../../app/reducers/cards/cardsSlice";
+import { toggleFavorites } from "../../app/reducers";
 import { useDispatch } from "react-redux";
 
 export function Card({ url, name, id, isCardLike }) {
@@ -36,6 +36,6 @@ export function Card({ url, name, id, isCardLike }) {
 Card.propTypes = {
   url: PropTypes.string,
   name: PropTypes.string,
-  id: PropTypes.string,
+  id: PropTypes.number,
   isCardLike: PropTypes.bool,
 };
