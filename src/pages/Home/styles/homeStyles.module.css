@@ -1,0 +1,17 @@
+.addMoreButton {
+  margin: 0 auto;
+  display: block;
+  font-size: 30px;
+  padding: 10px;
+  border: none;
+  border-radius: 15px;
+  background-color: #3b5998;
+  color: #ffff;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.addMoreButton:hover {
+  padding: 15px;
+}
+/*# sourceMappingURL=homeStyles.module.css.map */

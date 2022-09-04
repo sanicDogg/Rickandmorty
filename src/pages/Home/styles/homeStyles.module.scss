@@ -1,0 +1,17 @@
+@import "../../../styles/_var.scss";
+
+.addMoreButton{
+    margin: 0 auto;
+    display: block;
+    font-size: 30px;
+    padding: 10px;
+    border: none;
+    border-radius: 15px;
+    background-color: $mainColor;
+    color: $textColor;
+    cursor: pointer;
+    margin-bottom: 20px;
+    &:hover{
+        padding: 15px;
+    }
+}

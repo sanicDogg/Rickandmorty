@@ -1,17 +1,25 @@
 import { Cards, Search } from "../../components";
-import { useGetAllCharactersQuery } from "../../features/api/apiSlice";
-import {useSelector} from "react-redux";
-import {selectCards} from "../../features";
+import { useSelector, useDispatch } from "react-redux";
+
+import { selectCards, addId } from "../../features";
+
+import classes from "./styles/homeStyles.module.css";
 
 export function Home() {
-  const {data = []} = useGetAllCharactersQuery(13);
   const cards = useSelector(selectCards);
-  console.log(cards);
 
+  const dispatch = useDispatch();
+
+  const onAddId = () => {
+    dispatch(addId(20));
+  };
   return (
     <main>
       <Search />
-      <Cards cardsData={cards || data.results || data} />
+      <Cards cardsData={cards || []} />
+      <button onClick={onAddId} type="button" className={classes.addMoreButton}>
+        посмотреть еще
+      </button>
     </main>
   );
 }

@@ -1,15 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { apiSlice } from "../features/api/apiSlice";
-import { enableMapSet } from "immer";
+import { logger } from "../features/midlewares/logger/logger";
 import cardsSlice from "../features/cards/cardsSlice";
-
-enableMapSet();
 
 export const store = configureStore({
   reducer: {
     cards: cardsSlice,
-    [apiSlice.reducerPath]: apiSlice.reducer
+    [apiSlice.reducerPath]: apiSlice.reducer,
   },
-  middleware: getDefaultMiddleware =>
-    getDefaultMiddleware().concat(apiSlice.middleware)
-})
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(apiSlice.middleware).concat(logger),
+});

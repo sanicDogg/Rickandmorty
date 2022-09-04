@@ -1,76 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  cards: {
-    1: {
-      id: 1,
-      name: "mr. Meeseeks",
-      status: "Alive",
-      species: "Humanoid",
-      url: "https://picsum.photos/id/231/300/300",
-    },
-    2: {
-      id: 2,
-      name: "mr. Meeseeks",
-      status: "Alive",
-      species: "Humanoid",
-
-      url: "https://picsum.photos/id/232/300/300",
-    },
-    3: {
-      id: 3,
-      name: "mr. Meeseeks",
-      status: "Alive",
-      species: "Humanoid",
-      url: "https://picsum.photos/id/233/300/300",
-    },
-    4: {
-      id: 4,
-      name: "mr. Meeseeks",
-      status: "Alive",
-      species: "Humanoid",
-      url: "https://picsum.photos/id/234/300/300",
-    },
-    5: {
-      id: 5,
-      name: "mr. Meeseeks",
-      status: "Alive",
-      species: "Humanoid",
-      url: "https://picsum.photos/id/235/300/300",
-    },
-    6: {
-      id: 6,
-      name: "mr. Meeseeks",
-      status: "Alive",
-      species: "Humanoid",
-      url: "https://picsum.photos/id/236/300/300",
-    },
-    7: {
-      id: 7,
-      name: "mr. Meeseeks",
-      status: "Alive",
-      species: "Humanoid",
-      url: "https://picsum.photos/id/237/300/300",
-    },
-    8: {
-      id: 8,
-      name: "mr. Meeseeks",
-      status: "Alive",
-      species: "Humanoid",
-      url: "https://picsum.photos/id/238/300/300",
-    },
-  },
   cardsId: [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
   ],
-  favorites: new Set([]),
+  favorites: {},
 };
 
 const cardsSlice = createSlice({
@@ -78,20 +12,36 @@ const cardsSlice = createSlice({
   initialState,
 
   reducers: {
+    addId: (state, action) => {
+      for (let i = 0; i < action.payload; i++) {
+        const lastId = state.cardsId[state.cardsId.length - 1];
+        state.cardsId.push(lastId + 1);
+      }
+    },
+
+    clearFavorites: (state) => {
+      state.favorites = {};
+    },
+
+    changeFavorites: (state, action) => {
+      state.favorites = action.payload;
+    },
+
     toggleFavorites: (state, action) => {
-      if (state.favorites.has(action.payload)) {
-        state.favorites.delete(action.payload);
+      if (state.favorites.hasOwnProperty(action.payload)) {
+        delete state.favorites[action.payload];
       } else {
-        state.favorites.add(action.payload);
+        state.favorites[action.payload] = true;
       }
     },
   },
 });
 
-export const { toggleFavorites } = cardsSlice.actions;
+export const { toggleFavorites, addId, clearFavorites, changeFavorites } =
+  cardsSlice.actions;
 
 export const selectCards = (state) => state.cards.cardsId;
 
-export const selectFavorites = (state) => [...state.cards.favorites.values()];
+export const selectFavorites = (state) => Object.keys(state.cards.favorites);
 
 export default cardsSlice.reducer;
