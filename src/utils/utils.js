@@ -22,3 +22,15 @@ export function isUsernameExists(username) {
 
   return users.hasOwnProperty(username);
 }
+
+export function authenticate(username, password) {
+  if (!isUsernameExists(username)) return false;
+  const user = JSON.parse(localStorage.users)[username];
+
+  if (username === user.username && password === user.password) {
+    return user;
+  }
+}
+
+export const LOGIN_FORM = "LOGIN_FORM";
+export const REGISTER_FORM = "REGISTER_FORM";
