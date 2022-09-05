@@ -1,5 +1,5 @@
-import { setUser, toggleFavorites } from "../../user";
-import {toggleObjectField} from "../../../utils";
+import { logout, setUser, toggleFavorites } from "../../user";
+import { toggleObjectField } from "../../../utils";
 
 export const LSMiddleware = (store) => (next) => (action) => {
 
@@ -15,13 +15,17 @@ export const LSMiddleware = (store) => (next) => (action) => {
     localStorage.setItem("authed", JSON.stringify(newUser.username));
   }
 
-  if (toggleFavorites.match(action)) {
+  else if (toggleFavorites.match(action)) {
     const authedUser = users[store.getState().user.userData.username];
     let favorites = authedUser.favorites || {};
 
     toggleObjectField(favorites, action.payload);
 
     localStorage.setItem("users", JSON.stringify(users));
+  }
+
+  else if (logout.match(action)) {
+    localStorage.setItem("authed", "");
   }
 
   next(action);

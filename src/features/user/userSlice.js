@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import {toggleObjectField} from "../../utils";
+import { toggleObjectField } from "../../utils";
 
 const initialState = {
   loggedIn: false,
@@ -22,13 +22,15 @@ const userSlice = createSlice({
       state.loggedIn = true;
     },
 
+    logout: () => initialState,
+
     toggleFavorites: (state, action) => {
       toggleObjectField(state.userData.favorites, action.payload)
     },
   },
 });
 
-export const { toggleFavorites, setUser } =
+export const { toggleFavorites, setUser, logout } =
   userSlice.actions;
 
 export const selectUser = (state) => state.user.userData;

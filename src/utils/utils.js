@@ -16,3 +16,9 @@ export function toggleObjectField(object, property) {
     object[property] = true;
   }
 }
+
+export function isUsernameExists(username) {
+  const users = localStorage.users ? JSON.parse(localStorage.users) : [];
+
+  return users.hasOwnProperty(username);
+}

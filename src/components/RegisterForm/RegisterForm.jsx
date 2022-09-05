@@ -1,8 +1,9 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import cloneDeep from "lodash/cloneDeep";
 
 import { selectUser, setUser } from "../../features";
-import { useDispatch, useSelector } from "react-redux";
+import { isUsernameExists } from "../../utils";
 
 export function RegisterForm() {
   const [currUser, setCurrUser] = useState(useSelector(selectUser));
@@ -21,6 +22,12 @@ export function RegisterForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    if (isUsernameExists(username)) {
+      alert("Логин уже занят. Придумайте другой");
+      return;
+    }
+
     const userCopy = cloneDeep(currUser);
 
     userCopy.username = username;

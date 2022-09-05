@@ -1,7 +1,7 @@
-import React, {useEffect} from "react";
+import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { Home, Favorites, Character, SignUp } from "./pages";
+import { Home, Favorites, Character, SignUp, Logout } from "./pages";
 import { Header } from "./components";
 import { getLoggedUser } from "./utils";
 import { setUser } from "./features";
@@ -10,12 +10,10 @@ import "./App.css";
 function App() {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    const authedUser = getLoggedUser();
-    if (authedUser) {
-      dispatch(setUser(authedUser));
-    }
-  })
+  const authedUser = getLoggedUser();
+  if (authedUser) {
+    dispatch(setUser(authedUser));
+  }
 
   return (
     <>
@@ -25,6 +23,7 @@ function App() {
           <Route path="/*" element={<Home />} />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/logout" element={<Logout />} />
           <Route path="/character/:charId" element={<Character />} />
         </Routes>
       </main>
