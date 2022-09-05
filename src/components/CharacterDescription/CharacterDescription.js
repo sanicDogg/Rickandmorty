@@ -1,18 +1,30 @@
-import { useSelector } from "react-redux";
+import { useGetCharacterQuery } from "../../features/api/apiSlice";
+
 import classes from "./styles/characterDescription.module.css";
 
 export function CharacterDescription({ id }) {
-  const card = useSelector((state) => state.cards.cards[id]);
+  const { data = {}, isLoading } = useGetCharacterQuery(id);
 
+  if (isLoading) return <h1>Loading...</h1>;
+  console.log(data);
   return (
     <div className={classes.description}>
-      <h1 className={`${classes.description__text}`}>{`name: ${card.name}`}</h1>
+      <h1 className={`${classes.description__text}`}>{`name: ${data.name}`}</h1>
       <p
         className={`${classes.description__text}`}
-      >{`status: ${card.status}`}</p>
+      >{`status: ${data.status}`}</p>
       <p
         className={`${classes.description__text}`}
-      >{`species: ${card.species}`}</p>
+      >{`species: ${data.species}`}</p>
+      <p
+        className={`${classes.description__text}`}
+      >{`location: ${data.location.name}`}</p>
+      <p
+        className={`${classes.description__text}`}
+      >{`gender: ${data.gender}`}</p>
+      <p
+        className={`${classes.description__text}`}
+      >{`created: ${data.created}`}</p>
     </div>
   );
 }
