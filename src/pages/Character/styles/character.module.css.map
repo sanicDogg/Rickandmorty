@@ -1,10 +1,1 @@
-{
-    "version": 3,
-    "mappings": "AAEA,AAAA,SAAS,CAAA;EACL,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,MAAM;EAEvB,MAAM,EAAE,MAAM;EACd,OAAO,EAAE,MAAM;CAKlB;;AAJI,AAAD,sBAAc,CAAA;EACd,KAAK,EAAE,KAAK;CACX",
-    "sources": [
-        "character.module.scss",
-        "../../../styles/_var.scss"
-    ],
-    "names": [],
-    "file": "character.module.css"
-}
+{"version":3,"sourceRoot":"","sources":["character.module.scss"],"names":[],"mappings":"AAEA;EACI;EACA;EAEA;EACA;;AACA;EACA","file":"character.module.css"}
