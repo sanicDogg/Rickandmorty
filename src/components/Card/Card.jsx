@@ -15,7 +15,7 @@ export function Card({ id, isButtonVisible = true }) {
   const { data = {}, isLoading } = useGetCharacterQuery(id);
 
   const isCardInFavorites = useSelector((state) =>
-    state.cards.favorites.hasOwnProperty(id)
+    state.user.userData.favorites.hasOwnProperty(id)
   );
 
   const onToggleFavorites = () => {
