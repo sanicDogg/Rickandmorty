@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import {toggleObjectField} from "../../utils";
 
 const initialState = {
   loggedIn: false,
@@ -22,11 +23,7 @@ const userSlice = createSlice({
     },
 
     toggleFavorites: (state, action) => {
-      if (state.userData.favorites.hasOwnProperty(action.payload)) {
-        delete state.userData.favorites[action.payload];
-      } else {
-        state.userData.favorites[action.payload] = true;
-      }
+      toggleObjectField(state.userData.favorites, action.payload)
     },
   },
 });

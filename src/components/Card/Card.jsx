@@ -1,13 +1,15 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import PropTypes, { bool } from "prop-types";
+import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 
 import { useGetCharacterQuery } from "../../features/api/apiSlice";
-import { toggleFavorites } from "../../features";
+import {selectLoggedIn, toggleFavorites} from "../../features";
 
 import dislike from "../../img/icons/emptyHeart.svg";
 import like from "../../img/icons/fullHeart.svg";
 import classes from "./styles/cardStyle.module.css";
+
 
 export function Card({ id, isButtonVisible = true }) {
   const dispatch = useDispatch();
@@ -18,8 +20,13 @@ export function Card({ id, isButtonVisible = true }) {
     state.user.userData.favorites.hasOwnProperty(id)
   );
 
+  const isLoggedIn = useSelector(selectLoggedIn);
+  const navigate = useNavigate();
+
   const onToggleFavorites = () => {
-    dispatch(toggleFavorites(id));
+    if (isLoggedIn)
+      dispatch(toggleFavorites(id));
+    else navigate("/signup");
   };
 
   if (isLoading) return <h1>Loading...</h1>;

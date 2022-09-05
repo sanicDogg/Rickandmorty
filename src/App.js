@@ -1,10 +1,22 @@
-import React from "react";
+import React, {useEffect} from "react";
+import { Route, Routes } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { Home, Favorites, Character, SignUp } from "./pages";
 import { Header } from "./components";
-import { Route, Routes } from "react-router-dom";
+import { getLoggedUser } from "./utils";
+import { setUser } from "./features";
 import "./App.css";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const authedUser = getLoggedUser();
+    if (authedUser) {
+      dispatch(setUser(authedUser));
+    }
+  })
+
   return (
     <>
       <Header />
