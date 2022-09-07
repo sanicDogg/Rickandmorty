@@ -27,13 +27,13 @@
     &__button{
         position: absolute;
         left: 24px;
-        bottom: 30px;
+        bottom: 24px;
         cursor: pointer;
         border:none;
         padding: 5px 10px;
         background-color:$mainColor;
         color:$textColor;
-        display: none;
+        display: none ;
         border-radius: 20px;
     }
 }

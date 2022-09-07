@@ -14,7 +14,7 @@ export function Home() {
         addToCards.push(prevCards[prevCards.length - 1] + i);
       }
       return prevCards.concat(addToCards);
-    })
+    });
   };
   return (
     <main>

@@ -1,9 +1,9 @@
 import classes from "./styles/headerStyle.module.css";
 import { Link } from "react-router-dom";
-import {selectLoggedIn, selectUser} from "../../features";
-import {useSelector} from "react-redux";
+import { selectLoggedIn, selectUser } from "../../features";
+import { useSelector } from "react-redux";
 
-const LoggedIn = ({userName}) => (
+const LoggedIn = ({ userName }) => (
   <>
     <div className={classes.greeting}>Привет, {userName}!</div>
     <Link to="/favorites">Избранное</Link>
@@ -25,9 +25,11 @@ export function Header() {
 
   return (
     <header>
-      <Link to="/" className={classes.logo}>Rick and Morty</Link>
+      <Link to="/" className={classes.logo}>
+        Rick and Morty
+      </Link>
       <nav className={classes.menu}>
-        {isLoggedIn ? <LoggedIn userName={user.username}/> : <Guest />}
+        {isLoggedIn ? <LoggedIn userName={user.username} /> : <Guest />}
       </nav>
     </header>
   );

@@ -1,15 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
-import PropTypes, { bool } from "prop-types";
+import PropTypes from "prop-types";
 import { useNavigate } from "react-router";
-import { Link } from "react-router-dom";
-
+import { CardButton } from "./cardButton";
 import { useGetCharacterQuery } from "../../features/api/apiSlice";
-import {selectLoggedIn, toggleFavorites} from "../../features";
+import { selectLoggedIn, toggleFavorites } from "../../features";
 
 import dislike from "../../img/icons/emptyHeart.svg";
 import like from "../../img/icons/fullHeart.svg";
 import classes from "./styles/cardStyle.module.css";
-
 
 export function Card({ id, isButtonVisible = true }) {
   const dispatch = useDispatch();
@@ -24,8 +22,7 @@ export function Card({ id, isButtonVisible = true }) {
   const navigate = useNavigate();
 
   const onToggleFavorites = () => {
-    if (isLoggedIn)
-      dispatch(toggleFavorites(id));
+    if (isLoggedIn) dispatch(toggleFavorites(id));
     else navigate("/signup");
   };
 
@@ -35,9 +32,9 @@ export function Card({ id, isButtonVisible = true }) {
     <div className={classes.card}>
       <img className={classes.card__img} src={data.image} alt={data.name} />
       {isButtonVisible && (
-        <Link className={classes.card__link} to={`/character/${id}`}>
-          <button className={classes.card__button}>Подробнее</button>
-        </Link>
+        <div className={classes.card__button}>
+          <CardButton text="подробнее" id={id} />
+        </div>
       )}
       <img
         onClick={onToggleFavorites}
@@ -51,5 +48,5 @@ export function Card({ id, isButtonVisible = true }) {
 
 Card.propTypes = {
   id: PropTypes.number,
-  isButtonVisible: bool,
+  isButtonVisible: PropTypes.bool,
 };
