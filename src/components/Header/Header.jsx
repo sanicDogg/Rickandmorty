@@ -1,7 +1,9 @@
-import classes from "./styles/headerStyle.module.css";
 import { Link } from "react-router-dom";
-import { selectLoggedIn, selectUser } from "../../features";
 import { useSelector } from "react-redux";
+
+import { selectLoggedIn, selectUser } from "../../features";
+
+import classes from "./styles/headerStyle.module.css";
 
 const LoggedIn = ({ userName }) => (
   <>

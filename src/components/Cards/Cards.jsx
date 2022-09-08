@@ -1,5 +1,6 @@
-import classes from "./styles/cardsStyle.module.css";
 import { Card } from "../Card";
+
+import classes from "./styles/cardsStyle.module.css";
 
 export function Cards({ cardsData }) {
   return (

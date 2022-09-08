@@ -28,4 +28,8 @@
 .searchResult__button {
   margin-left: auto;
 }
+
+.searchResult__likeButton {
+  margin-left: 20px;
+}
 /*# sourceMappingURL=searchResult.module.css.map */

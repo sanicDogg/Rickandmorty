@@ -3,9 +3,11 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 import { DebounceInput } from "react-debounce-input";
+
 import { useGetCharacterByNameQuery } from "../../features/api/apiSlice";
 import { addToHistory } from "../../features";
 import { SearchItem } from "./SearchItem";
+
 import classes from "./styles/searchStyle.module.css";
 
 export function Search() {
@@ -18,6 +20,10 @@ export function Search() {
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
+
+  const toggleSearchFieldVisible = () => {
+    setSearchFieldVisible(!setSearchFieldVisible);
+  };
 
   const search = (newValue) => {
     setSearchValue(newValue);
@@ -36,7 +42,7 @@ export function Search() {
 
   const onKeyPress = (event) => {
     if (event.key === "Enter") {
-      setSearchFieldVisible(false);
+      toggleSearchFieldVisible();
       dispatch(addToHistory(searchValue));
       if (isSuccess) {
         navigate(`/search/${searchValue}`);
@@ -72,7 +78,12 @@ export function Search() {
       {isSuccess && isVisibleSearchField && (
         <nav className={classes.searchResults}>
           {cards.map((card) => (
-            <SearchItem key={card.id} id={card.id} name={card.name} />
+            <SearchItem
+              key={card.id}
+              id={card.id}
+              name={card.name}
+              toggleSearchFieldVisible={toggleSearchFieldVisible}
+            />
           ))}
         </nav>
       )}

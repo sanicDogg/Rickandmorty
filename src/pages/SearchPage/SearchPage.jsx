@@ -1,8 +1,10 @@
+import { useState, useEffect } from "react";
 import { useParams } from "react-router";
+
 import { useGetCharacterByNameQuery } from "../../features/api/apiSlice";
 import { Search, SearchResult } from "../../components";
+
 import classes from "./styles/searchPageStyles.module.css";
-import { useState, useEffect } from "react";
 
 export function SearchPage() {
   const { searchValue } = useParams();

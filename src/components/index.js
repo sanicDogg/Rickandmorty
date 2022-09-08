@@ -5,3 +5,4 @@ export * from "./CharacterDescription";
 export * from "./AuthFormRenderer";
 export * from "./SearchResult";
 export * from "./Search";
+export * from "./LikeButton";

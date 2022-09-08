@@ -1,5 +1,7 @@
 import PropTypes from "prop-types";
+
 import { useGetCharacterQuery } from "../../features/api/apiSlice";
+
 import classes from "./styles/characterDescription.module.css";
 
 export function CharacterDescription({ id }) {

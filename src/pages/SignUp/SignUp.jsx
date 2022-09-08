@@ -7,7 +7,9 @@ import { REGISTER_FORM } from "../../utils";
 export function SignUp() {
   const isLoggedIn = useSelector(selectLoggedIn);
 
-  return (
-    isLoggedIn ? <Navigate to={"/"} /> : <AuthFormRenderer type={REGISTER_FORM}/>
-  )
+  return isLoggedIn ? (
+    <Navigate to={"/"} />
+  ) : (
+    <AuthFormRenderer type={REGISTER_FORM} />
+  );
 }

@@ -1,5 +1,7 @@
 import { useParams } from "react-router";
+
 import { Card, CharacterDescription } from "../../components";
+
 import classes from "./styles/character.module.css";
 
 export function Character() {
