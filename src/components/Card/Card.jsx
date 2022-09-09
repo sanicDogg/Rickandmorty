@@ -1,32 +1,51 @@
-import classes from "./styles/cardStyle.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import PropTypes, { bool } from "prop-types";
+import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
+
+import { useGetCharacterQuery } from "../../features/api/apiSlice";
+import {selectLoggedIn, toggleFavorites} from "../../features";
+
 import dislike from "../../img/icons/emptyHeart.svg";
 import like from "../../img/icons/fullHeart.svg";
-import PropTypes from "prop-types";
-import { toggleFavorites } from "../../app/reducers/cards/cardsSlice";
-import { useDispatch } from "react-redux";
+import classes from "./styles/cardStyle.module.css";
 
-export function Card({ url, name, id, isCardLike }) {
+
+export function Card({ id, isLikeButtonVisible = true }) {
   const dispatch = useDispatch();
 
-  const toggleFavoritesClickHandler = () => {
-    dispatch(
-      toggleFavorites({
-        id,
-        name,
-        url,
-        isLike: true,
-      })
-    );
+  const { data = {}, isLoading } = useGetCharacterQuery(id);
+
+  const isCardInFavorites = useSelector((state) =>
+    state.user.userData.favorites.hasOwnProperty(id)
+  );
+
+  const isLoggedIn = useSelector(selectLoggedIn);
+  const navigate = useNavigate();
+
+  const onToggleFavorites = () => {
+    if (isLoggedIn) {
+      dispatch(toggleFavorites(id));
+    }
+    else {
+      navigate("/signup");
+    }
   };
+
+  if (isLoading) return <h1>Loading...</h1>;
 
   return (
     <div className={classes.card}>
-      <img className={classes.card__img} src={url} alt={name} />
-      <button className={classes.card__button}>Подробнее</button>
+      <img className={classes.card__img} src={data.image} alt={data.name} />
+      {isLikeButtonVisible && (
+        <Link className={classes.card__link} to={`/character/${id}`}>
+          <button className={classes.card__button}>Подробнее</button>
+        </Link>
+      )}
       <img
-        onClick={toggleFavoritesClickHandler}
+        onClick={onToggleFavorites}
         className={classes.card__like}
-        src={isCardLike ? like : dislike}
+        src={isCardInFavorites ? like : dislike}
         alt="like"
       />
     </div>
@@ -34,8 +53,6 @@ export function Card({ url, name, id, isCardLike }) {
 }
 
 Card.propTypes = {
-  url: PropTypes.string,
-  name: PropTypes.string,
-  id: PropTypes.string,
-  isCardLike: PropTypes.bool,
+  id: PropTypes.number,
+  isLikeButtonVisible: bool,
 };

@@ -15,6 +15,15 @@ header a {
 header a:visited, header a:link {
   color: #c8553d;
 }
+header button {
+  color: #588b8b;
+  background: #ffd5c2;
+  border: none;
+  font-size: inherit;
+}
+header button:hover {
+  cursor: pointer;
+}
 
 .logo {
   font-size: 35px;
@@ -24,7 +33,7 @@ header a:visited, header a:link {
 .menu {
   display: inline-flex;
   align-items: center;
-  gap: 100px;
+  gap: 80px;
 }
 .menu .greeting {
   color: #d37764;

@@ -1,12 +1,17 @@
-import { Cards } from "../../components";
-import { selectFavorites } from "../../app/reducers/cards/cardsSlice";
 import { useSelector } from "react-redux";
+import { selectFavorites, selectLoggedIn } from "../../features";
+import { Cards } from "../../components";
+import { Navigate } from "react-router";
 
 export function Favorites() {
+  const isLoggedIn = useSelector(selectLoggedIn);
   const cards = useSelector(selectFavorites);
+
   return (
-    <main>
-      <Cards cardsData={cards} />
-    </main>
+    isLoggedIn ?
+      <div>
+        <Cards cardsData={cards}/>
+      </div> :
+      <Navigate to={"/signup"}/>
   );
 }

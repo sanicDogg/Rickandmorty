@@ -1,6 +1,7 @@
 .cards {
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
 }
-
 /*# sourceMappingURL=cardsStyle.module.css.map */
