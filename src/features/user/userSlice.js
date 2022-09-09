@@ -17,6 +17,8 @@ const userSlice = createSlice({
   initialState,
 
   reducers: {
+    init: () => initialState,
+
     setUser: (state, action) => {
       state.userData = action.payload;
       state.loggedIn = true;
@@ -30,7 +32,7 @@ const userSlice = createSlice({
   },
 });
 
-export const { toggleFavorites, setUser, logout } =
+export const { toggleFavorites, setUser, logout, init } =
   userSlice.actions;
 
 export const selectUser = (state) => state.user.userData;

@@ -1,13 +1,7 @@
 header {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
   padding: 50px 70px;
   margin-bottom: 20px;
   font-size: 20px;
@@ -15,13 +9,20 @@ header {
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
 }
-
 header a {
   text-decoration: none;
 }
-
 header a:visited, header a:link {
   color: #c8553d;
+}
+header button {
+  color: #588b8b;
+  background: #ffd5c2;
+  border: none;
+  font-size: inherit;
+}
+header button:hover {
+  cursor: pointer;
 }
 
 .logo {
@@ -30,20 +31,15 @@ header a:visited, header a:link {
 }
 
 .menu {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 100px;
+  align-items: center;
+  gap: 80px;
 }
-
 .menu .greeting {
   color: #d37764;
 }
-
 .menu a:visited, .menu a:link {
   color: #588b8b;
 }
+
 /*# sourceMappingURL=headerStyle.module.css.map */

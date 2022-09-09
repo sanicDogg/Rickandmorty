@@ -8,7 +8,7 @@ export function Character() {
   return (
     <div className={classes.charPage}>
       <div className={classes.charPage__itemWrapper}>
-        <Card id={charId.charId} isButtonVisible={false} />
+        <Card id={charId.charId} isLikeButtonVisible={false} />
       </div>
       <div className={classes.charPage__itemWrapper}>
         <CharacterDescription id={charId.charId} />

@@ -11,7 +11,7 @@ import like from "../../img/icons/fullHeart.svg";
 import classes from "./styles/cardStyle.module.css";
 
 
-export function Card({ id, isButtonVisible = true }) {
+export function Card({ id, isLikeButtonVisible = true }) {
   const dispatch = useDispatch();
 
   const { data = {}, isLoading } = useGetCharacterQuery(id);
@@ -24,9 +24,12 @@ export function Card({ id, isButtonVisible = true }) {
   const navigate = useNavigate();
 
   const onToggleFavorites = () => {
-    if (isLoggedIn)
+    if (isLoggedIn) {
       dispatch(toggleFavorites(id));
-    else navigate("/signup");
+    }
+    else {
+      navigate("/signup");
+    }
   };
 
   if (isLoading) return <h1>Loading...</h1>;
@@ -34,7 +37,7 @@ export function Card({ id, isButtonVisible = true }) {
   return (
     <div className={classes.card}>
       <img className={classes.card__img} src={data.image} alt={data.name} />
-      {isButtonVisible && (
+      {isLikeButtonVisible && (
         <Link className={classes.card__link} to={`/character/${id}`}>
           <button className={classes.card__button}>Подробнее</button>
         </Link>
@@ -51,5 +54,5 @@ export function Card({ id, isButtonVisible = true }) {
 
 Card.propTypes = {
   id: PropTypes.number,
-  isButtonVisible: bool,
+  isLikeButtonVisible: bool,
 };
