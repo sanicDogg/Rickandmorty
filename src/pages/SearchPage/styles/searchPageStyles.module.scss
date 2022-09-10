@@ -1,0 +1,15 @@
+
+.searchPage{
+&__resultContainer{
+    max-width: 1024px;
+    margin: 0 auto;
+
+}
+}
+
+.searchPage__errorMessage{
+    text-align: center;
+    width: 100%;
+    color: red;
+
+}

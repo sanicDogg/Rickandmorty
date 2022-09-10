@@ -1,6 +1,8 @@
-import { Cards, Search } from "../../components";
-import classes from "./styles/homeStyles.module.css";
 import { useState } from "react";
+
+import { Cards, Search } from "../../components";
+
+import classes from "./styles/homeStyles.module.css";
 
 export function Home() {
   const [cards, setCards] = useState([
@@ -14,7 +16,7 @@ export function Home() {
         addToCards.push(prevCards[prevCards.length - 1] + i);
       }
       return prevCards.concat(addToCards);
-    })
+    });
   };
   return (
     <main>

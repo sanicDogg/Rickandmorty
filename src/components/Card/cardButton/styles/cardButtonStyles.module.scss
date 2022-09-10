@@ -1,0 +1,12 @@
+@import "../../../../styles/_var.scss";
+
+
+   .cardButton{
+        cursor: pointer;
+        border:none;
+        padding: 5px 10px;
+        background-color:$mainColor;
+        color:$textColor;
+      
+        border-radius: 20px;
+    }

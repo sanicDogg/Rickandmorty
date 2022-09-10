@@ -1,0 +1,9 @@
+.cardButton {
+  cursor: pointer;
+  border: none;
+  padding: 5px 10px;
+  background-color: #3b5998;
+  color: #ffff;
+  border-radius: 20px;
+}
+/*# sourceMappingURL=cardButtonStyles.module.css.map */

@@ -5,11 +5,11 @@ const initialState = {
   loggedIn: false,
 
   userData: {
-    username: '',
-    password: '',
+    username: "",
+    password: "",
     favorites: {},
-    history: {}
-  }
+    history: [],
+  },
 };
 
 const userSlice = createSlice({
@@ -17,7 +17,7 @@ const userSlice = createSlice({
   initialState,
 
   reducers: {
-    init: () => initialState,
+    init: (state) => state,
 
     setUser: (state, action) => {
       state.userData = action.payload;
@@ -27,18 +27,24 @@ const userSlice = createSlice({
     logout: () => initialState,
 
     toggleFavorites: (state, action) => {
-      toggleObjectField(state.userData.favorites, action.payload)
+      toggleObjectField(state.userData.favorites, action.payload);
+    },
+    addToHistory: (state, action) => {
+      state.userData.history.push(action.payload);
     },
   },
 });
 
-export const { toggleFavorites, setUser, logout, init } =
+export const { toggleFavorites, setUser, logout, addToHistory, init } =
   userSlice.actions;
 
 export const selectUser = (state) => state.user.userData;
+
 export const selectLoggedIn = (state) => state.user.loggedIn;
 
-export const selectFavorites = (state) => Object.keys(state.user.userData.favorites);
+export const selectFavorites = (state) =>
+  Object.keys(state.user.userData.favorites);
 
+export const selectHistory = (state) => state.user.userData.history;
 
 export default userSlice.reducer;

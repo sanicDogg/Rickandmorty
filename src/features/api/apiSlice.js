@@ -1,19 +1,25 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const BASE_URL = 'https://rickandmortyapi.com/api/character';
-
+const BASE_URL = "https://rickandmortyapi.com/api/character";
 
 export const apiSlice = createApi({
-  reducerPath: 'api',
-  baseQuery: fetchBaseQuery({baseUrl: BASE_URL}),
-  endpoints: builder => ({
+  reducerPath: "api",
+  baseQuery: fetchBaseQuery({ baseUrl: BASE_URL }),
+  endpoints: (builder) => ({
     getCharacter: builder.query({
-      query: id => `/${id}`
+      query: (id) => `/${id}`,
     }),
     getAllCharacters: builder.query({
-      query: page => `/?page=${page}`
-    })
-  })
-})
+      query: (page) => `/?page=${page}`,
+    }),
+    getCharacterByName: builder.query({
+      query: (name) => `/?name=${name}`,
+    }),
+  }),
+});
 
-export const {useGetCharacterQuery, useGetAllCharactersQuery} = apiSlice;
+export const {
+  useGetCharacterQuery,
+  useGetAllCharactersQuery,
+  useGetCharacterByNameQuery,
+} = apiSlice;

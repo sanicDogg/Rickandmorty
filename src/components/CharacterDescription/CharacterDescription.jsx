@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 import { useGetCharacterQuery } from "../../features/api/apiSlice";
 
 import classes from "./styles/characterDescription.module.css";
@@ -6,7 +8,7 @@ export function CharacterDescription({ id }) {
   const { data = {}, isLoading } = useGetCharacterQuery(id);
 
   if (isLoading) return <h1>Loading...</h1>;
-  console.log(data);
+
   return (
     <div className={classes.description}>
       <h1 className={`${classes.description__text}`}>{`name: ${data.name}`}</h1>
@@ -28,3 +30,6 @@ export function CharacterDescription({ id }) {
     </div>
   );
 }
+CharacterDescription.propTypes = {
+  id: PropTypes.number,
+};
