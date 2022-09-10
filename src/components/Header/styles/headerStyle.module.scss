@@ -18,6 +18,17 @@ header {
       color: $logoColor;
     }
   }
+
+  button {
+    color: $linkColor;
+    background: $bgColor;
+    border: none;
+    font-size: inherit;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }
 
 .logo {
@@ -28,7 +39,7 @@ header {
 .menu {
   display: inline-flex;
   align-items: center;
-  gap: 100px;
+  gap: 80px;
 
   .greeting {
     color: $greetingColor;

@@ -10,7 +10,7 @@ export function Character() {
   return (
     <div className={classes.charPage}>
       <div className={classes.charPage__itemWrapper}>
-        <Card id={parseInt(charId)} isButtonVisible={false} />
+        <Card id={parseInt(charId)} isDescButtonVisible={false} />
       </div>
       <div className={classes.charPage__itemWrapper}>
         <CharacterDescription id={parseInt(charId)} />
