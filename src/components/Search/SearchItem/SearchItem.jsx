@@ -10,20 +10,15 @@ import classes from "./styles/searchItemStyles.module.css";
 export function SearchItem({ id, name, toggleSearchFieldVisible }) {
   const dispatch = useDispatch();
 
-  const onToggleSearchFieldVisible = () => {
+  const onLinkClick = () => {
     toggleSearchFieldVisible();
-  };
-  const onAddToHistory = () => {
     dispatch(addToHistory(name));
   };
 
   return (
     <div className={classes.searchItem}>
       <Link
-        onClick={() => {
-          onAddToHistory();
-          onToggleSearchFieldVisible();
-        }}
+        onClick={onLinkClick}
         to={`/search/${name}`}
         className={classes.searchItem__name}
       >

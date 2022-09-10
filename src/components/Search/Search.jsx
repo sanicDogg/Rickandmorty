@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 import { DebounceInput } from "react-debounce-input";
@@ -15,22 +14,18 @@ export function Search() {
 
   const [isVisibleSearchField, setSearchFieldVisible] = useState(false);
 
-  const [cards, setCards] = useState([]);
-
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
 
   const toggleSearchFieldVisible = () => {
-    setSearchFieldVisible(!setSearchFieldVisible);
+    setSearchFieldVisible(!isVisibleSearchField);
   };
 
   const search = (newValue) => {
     setSearchValue(newValue);
     setSearchFieldVisible(true);
-    if (newValue === "") {
-      setSearchFieldVisible(false);
-    }
+    setSearchFieldVisible(newValue !== "");
   };
 
   const {
@@ -41,20 +36,12 @@ export function Search() {
   } = useGetCharacterByNameQuery(searchValue);
 
   const onKeyPress = (event) => {
-    if (event.key === "Enter") {
+    if (event.key === "Enter" && searchValue !== "") {
       toggleSearchFieldVisible();
       dispatch(addToHistory(searchValue));
-      if (isSuccess) {
-        navigate(`/search/${searchValue}`);
-      }
+      navigate(`/search/${searchValue}`);
     }
   };
-  useEffect(() => {
-    if (data.results) {
-      const result = data.results.filter((card, index) => index < 5);
-      setCards(result);
-    }
-  }, [data]);
 
   if (isLoading) return <h1>Loading...</h1>;
 
@@ -77,14 +64,16 @@ export function Search() {
       )}
       {isSuccess && isVisibleSearchField && (
         <nav className={classes.searchResults}>
-          {cards.map((card) => (
-            <SearchItem
-              key={card.id}
-              id={card.id}
-              name={card.name}
-              toggleSearchFieldVisible={toggleSearchFieldVisible}
-            />
-          ))}
+          {data.results
+            .filter((card, index) => index < 5)
+            .map((card) => (
+              <SearchItem
+                key={card.id}
+                id={card.id}
+                name={card.name}
+                toggleSearchFieldVisible={toggleSearchFieldVisible}
+              />
+            ))}
         </nav>
       )}
     </div>

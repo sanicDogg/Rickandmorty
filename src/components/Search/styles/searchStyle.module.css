@@ -6,7 +6,8 @@
 .search {
   padding: 20px 10px;
   width: 100%;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   font-size: 18px;
   text-align: center;
 }
@@ -22,10 +23,12 @@
   left: 30%;
   right: 30%;
 }
+
 .searchResults__errorMessage {
   color: red;
-  align-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
   text-align: center;
 }
-
 /*# sourceMappingURL=searchStyle.module.css.map */

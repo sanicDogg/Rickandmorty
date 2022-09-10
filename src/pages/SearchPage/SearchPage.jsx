@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 
 import { useGetCharacterByNameQuery } from "../../features/api/apiSlice";
@@ -9,31 +8,39 @@ import classes from "./styles/searchPageStyles.module.css";
 export function SearchPage() {
   const { searchValue } = useParams();
 
-  const [cards, setCards] = useState([]);
+  const {
+    data = [],
+    isLoading,
+    isSuccess,
+    isError,
+  } = useGetCharacterByNameQuery(searchValue);
 
-  const { data = [], isLoading } = useGetCharacterByNameQuery(searchValue);
-
-  useEffect(() => {
-    if (data.results) {
-      setCards(data.results);
-    }
-  }, [data]);
+  if (isLoading) return <h1>Loading...</h1>;
 
   return (
     <main className={classes.searchPage}>
       <Search />
-      <div className={classes.searchPage__resultContainer}>
-        {cards.map((card) => (
-          <SearchResult
-            key={card.id}
-            id={card.id}
-            name={card.name}
-            image={card.image}
-            location={card.location.name}
-            isLoading={isLoading}
-          />
-        ))}
-      </div>
+      {isSuccess && (
+        <div className={classes.searchPage__resultContainer}>
+          {data.results.map((card) => (
+            <SearchResult
+              key={card.id}
+              id={card.id}
+              name={card.name}
+              image={card.image}
+              location={card.location.name}
+              isLoading={isLoading}
+            />
+          ))}
+        </div>
+      )}
+      {isError && (
+        <div className={classes.searchPage__resultContainer}>
+          <p className={classes.searchPage__errorMessage}>
+            по данному запросу ничего не найденно
+          </p>
+        </div>
+      )}
     </main>
   );
 }

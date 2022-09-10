@@ -3,4 +3,9 @@
   margin: 0 auto;
 }
 
+.searchPage__errorMessage {
+  text-align: center;
+  width: 100%;
+  color: red;
+}
 /*# sourceMappingURL=searchPageStyles.module.css.map */
