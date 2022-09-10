@@ -1,0 +1,29 @@
+.container {
+  padding: 50px;
+  position: relative;
+}
+
+.search {
+  padding: 20px 10px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 18px;
+  text-align: center;
+}
+
+.searchResults{
+position: absolute;
+z-index: 2;
+background-color: white;
+padding: 40px;
+border-bottom-right-radius: 30px;
+border-bottom-left-radius: 30px;
+border: 1px solid lightgrey;
+left: 30%;
+right: 30%;
+&__errorMessage{
+  color: red;
+  align-self: center;
+  text-align: center;
+}
+}

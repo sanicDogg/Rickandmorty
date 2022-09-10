@@ -1,0 +1,16 @@
+.searchItem{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+  &:not(:last-child){
+      margin-bottom: 30px;
+  }
+  &__name{
+    text-decoration: none;
+    color: black;
+    &:hover{
+      text-decoration:underline;
+ }
+  }
+}

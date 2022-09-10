@@ -3,13 +3,13 @@ import { useDispatch } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import { Header } from "./components";
 import { init } from "./features";
-import { Character, Favorites, Home, SignIn, SignUp } from "./pages";
+import { Character, Favorites, Home, SearchPage, SignIn, SignUp } from "./pages";
 import "./App.css";
 
 function App() {
   const dispatch = useDispatch();
 
-  dispatch(init())
+  dispatch(init());
 
   return (
     <>
@@ -21,6 +21,7 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/character/:charId" element={<Character />} />
+          <Route path="/search/:searchValue" element={<SearchPage />} />
         </Routes>
       </main>
     </>
