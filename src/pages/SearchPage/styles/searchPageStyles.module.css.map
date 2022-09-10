@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAEC,AAAD,4BAAkB,CAAA;EACd,SAAS,EAAE,MAAM;EACjB,MAAM,EAAE,MAAM;CAEjB",
-    "sources": [
-        "searchPageStyles.module.scss"
-    ],
-    "names": [],
-    "file": "searchPageStyles.module.css"
-}

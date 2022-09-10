@@ -1,35 +1,25 @@
 .searchResult {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   height: 100px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  align-items: center;
+  justify-content: flex-start;
 }
-
 .searchResult:not(:last-child) {
   border-bottom: 1px solid lightgray;
   margin-bottom: 10px;
 }
-
 .searchResult__desc {
   margin-left: 60px;
   width: 25%;
 }
-
 .searchResult__img {
   height: 100px;
 }
-
 .searchResult__button {
   margin-left: auto;
 }
-
 .searchResult__likeButton {
   margin-left: 20px;
 }
+
 /*# sourceMappingURL=searchResult.module.css.map */

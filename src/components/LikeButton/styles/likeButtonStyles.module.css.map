@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,WAAW,CAAA;EACT,MAAM,EAAE,OAAO;CAChB",
-    "sources": [
-        "likeButtonStyles.module.scss"
-    ],
-    "names": [],
-    "file": "likeButtonStyles.module.css"
-}
