@@ -1,0 +1,13 @@
+.historyItem{
+    text-decoration: none;
+    &:not(:last-child){
+        margin-bottom: 20px;
+    }
+    &__link{
+        text-decoration: none;
+    }
+    &__text{
+    color: black;
+    margin-right: 10px;
+    }
+}
