@@ -1,0 +1,17 @@
+.historyItem {
+  text-decoration: none;
+}
+
+.historyItem:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.historyItem__link {
+  text-decoration: none;
+}
+
+.historyItem__text {
+  color: black;
+  margin-right: 10px;
+}
+/*# sourceMappingURL=HistoryItem.module.css.map */

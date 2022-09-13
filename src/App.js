@@ -3,7 +3,15 @@ import { useDispatch } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import { Header } from "./components";
 import { init } from "./features";
-import { Character, Favorites, Home, SearchPage, SignIn, SignUp } from "./pages";
+import {
+  Character,
+  Favorites,
+  Home,
+  SearchPage,
+  SignIn,
+  SignUp,
+  History,
+} from "./pages";
 import "./App.css";
 
 function App() {
@@ -22,6 +30,7 @@ function App() {
           <Route path="/signin" element={<SignIn />} />
           <Route path="/character/:charId" element={<Character />} />
           <Route path="/search/:searchValue" element={<SearchPage />} />
+          <Route path="/history" element={<History />} />
         </Routes>
       </main>
     </>

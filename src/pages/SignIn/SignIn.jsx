@@ -7,7 +7,5 @@ import { LOGIN_FORM } from "../../utils";
 export function SignIn() {
   const isLoggedIn = useSelector(selectLoggedIn);
 
-  return (
-    isLoggedIn ? <Navigate to={"/"}/> : <AuthForm type={LOGIN_FORM}/>
-  )
+  return isLoggedIn ? <Navigate to={"/"} /> : <AuthForm type={LOGIN_FORM} />;
 }

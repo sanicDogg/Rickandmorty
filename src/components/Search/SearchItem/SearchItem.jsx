@@ -7,11 +7,11 @@ import { CardButton } from "../../Card/cardButton";
 
 import classes from "./styles/searchItemStyles.module.css";
 
-export function SearchItem({ id, name, toggleSearchFieldVisible }) {
+export function SearchItem({ id, name, hideleSearchFieldVisible }) {
   const dispatch = useDispatch();
 
   const onLinkClick = () => {
-    toggleSearchFieldVisible();
+    hideleSearchFieldVisible();
     dispatch(addToHistory(name));
   };
 
