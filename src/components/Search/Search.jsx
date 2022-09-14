@@ -18,13 +18,12 @@ export function Search() {
 
   const dispatch = useDispatch();
 
-  const toggleSearchFieldVisible = () => {
-    setSearchFieldVisible(!isVisibleSearchField);
+  const hideSearchField = () => {
+    setSearchFieldVisible(false);
   };
 
   const search = (newValue) => {
     setSearchValue(newValue);
-    setSearchFieldVisible(true);
     setSearchFieldVisible(newValue !== "");
   };
 
@@ -37,7 +36,7 @@ export function Search() {
 
   const onKeyPress = (event) => {
     if (event.key === "Enter" && searchValue !== "") {
-      toggleSearchFieldVisible();
+      hideSearchField();
       dispatch(addToHistory(searchValue));
       navigate(`/search/${searchValue}`);
     }
@@ -72,7 +71,7 @@ export function Search() {
                 key={card.id}
                 id={card.id}
                 name={card.name}
-                toggleSearchFieldVisible={toggleSearchFieldVisible}
+                hideleSearchFieldVisible={hideSearchField}
               />
             ))}
         </nav>
