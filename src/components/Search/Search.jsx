@@ -47,7 +47,6 @@ export function Search() {
   return (
     <div className={classes.container}>
       <DebounceInput
-        inputRef={(input) => input && input.focus()}
         onKeyDown={onKeyPress}
         minLength={2}
         debounceTimeout={500}
