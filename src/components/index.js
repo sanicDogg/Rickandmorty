@@ -6,3 +6,4 @@ export * from "./AuthForm";
 export * from "./SearchResult";
 export * from "./Search";
 export * from "./LikeButton";
+export * from "./HistoryItem";
