@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { Route, Routes } from "react-router-dom";
-import { Header } from "./components";
+import { Header, ErrorBoundary } from "./components";
 import { init } from "./features";
 import {
   Character,
@@ -21,18 +21,20 @@ function App() {
 
   return (
     <>
-      <Header />
-      <main>
-        <Routes>
-          <Route path="/*" element={<Home />} />
-          <Route path="/favorites" element={<Favorites />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/signin" element={<SignIn />} />
-          <Route path="/character/:charId" element={<Character />} />
-          <Route path="/search/:searchValue" element={<SearchPage />} />
-          <Route path="/history" element={<History />} />
-        </Routes>
-      </main>
+      <ErrorBoundary>
+        <Header />
+        <main>
+          <Routes>
+            <Route path="/*" element={<Home />} />
+            <Route path="/favorites" element={<Favorites />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/signin" element={<SignIn />} />
+            <Route path="/character/:charId" element={<Character />} />
+            <Route path="/search/:searchValue" element={<SearchPage />} />
+            <Route path="/history" element={<History />} />
+          </Routes>
+        </main>
+      </ErrorBoundary>
     </>
   );
 }
