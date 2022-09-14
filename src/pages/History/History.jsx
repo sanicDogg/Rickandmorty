@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 
-import { selectHistory, selectHistoryVisibility } from "../../features";
+import { selectHistory } from "../../features";
 import { HistoryItem } from "../../components";
 
 import classes from "./styles/history.module.css";
@@ -8,7 +8,7 @@ import classes from "./styles/history.module.css";
 export function History() {
   const history = useSelector(selectHistory);
 
-  const isHistory = useSelector(selectHistoryVisibility);
+  const isHistory = Boolean(history.leangth);
 
   return (
     <div className={classes.history}>
