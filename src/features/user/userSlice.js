@@ -45,9 +45,6 @@ export const selectLoggedIn = (state) => state.user.loggedIn;
 export const selectFavorites = (state) =>
   Object.keys(state.user.userData.favorites);
 
-export const selectHistoryVisibility = (state) =>
-  Boolean(state.user.userData.history.length);
-
 export const selectHistory = (state) => state.user.userData.history;
 
 export default userSlice.reducer;

@@ -7,12 +7,13 @@ import { CardButton } from "../../Card/cardButton";
 
 import classes from "./styles/searchItemStyles.module.css";
 
-export function SearchItem({ id, name, hideleSearchFieldVisible }) {
+export function SearchItem({ id, name, hideSearchField }) {
   const dispatch = useDispatch();
 
   const onLinkClick = () => {
-    hideleSearchFieldVisible();
     dispatch(addToHistory(name));
+    console.log(name);
+    hideSearchField();
   };
 
   return (
