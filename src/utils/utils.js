@@ -36,5 +36,11 @@ export function authenticate(username, password) {
   }
 }
 
+export function chooseClass(theme, darkClass, lightClass) {
+  return theme === DARK_THEME ? darkClass : lightClass;
+}
+
 export const LOGIN_FORM = "LOGIN_FORM";
 export const REGISTER_FORM = "REGISTER_FORM";
+export const DARK_THEME = "DARK_THEME";
+export const LIGHT_THEME = "LIGHT_THEME";

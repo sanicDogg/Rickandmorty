@@ -4,6 +4,7 @@ import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import { logout, selectLoggedIn, selectUser } from "../../features";
 import { ThemeContext } from "../../app/themeContext";
+import { chooseClass } from "../../utils";
 
 import classes from "./styles/headerStyle.module.css";
 
@@ -23,11 +24,6 @@ export function Header() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const chooseClass = (darkClass, lightClass) => {
-    if (theme === "dark") return darkClass;
-    return lightClass;
-  };
-
   const handleLogout = () => {
     dispatch(logout());
     navigate("/");
@@ -39,7 +35,7 @@ export function Header() {
       <Link to="/favorites">Избранное</Link>
       <Link to="/history">История</Link>
       <button
-        className={chooseClass(classes.buttonDark, "")}
+        className={chooseClass(theme, classes.buttonDark, "")}
         type="button"
         onClick={handleLogout}
       >
@@ -49,10 +45,10 @@ export function Header() {
   );
 
   return (
-    <header className={chooseClass(classes.headerDark, "")}>
+    <header className={chooseClass(theme, classes.headerDark, "")}>
       <Link
         to="/"
-        className={chooseClass(classes.headerDark__logo, classes.logo)}
+        className={chooseClass(theme, classes.headerDark__logo, classes.logo)}
       >
         Rick and Morty
       </Link>
@@ -60,10 +56,7 @@ export function Header() {
         {isLoggedIn ? <LoggedIn userName={user.username} /> : <Guest />}
       </nav>
       <button
-        className={`${chooseClass(
-          classes.themeButtonDark,
-          classes.themeButtonLight
-        )} ${classes.themeButton}`}
+        className={classes.themeBtn}
         onClick={changeTheme}
         type="button"
       >
