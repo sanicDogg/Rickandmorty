@@ -14,6 +14,7 @@ header {
   background: #ffd5c2;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
+  position: relative;
 }
 
 header a {
@@ -56,5 +57,52 @@ header button:hover {
 
 .menu a:visited, .menu a:link {
   color: #588b8b;
+}
+
+.headerDark {
+  background-color: black;
+}
+
+.headerDark__logo {
+  font-size: 35px;
+  display: inline-block;
+}
+
+.headerDark .buttonDark {
+  background-color: black;
+}
+
+.themeButton {
+  position: absolute;
+  width: 50px;
+  padding: 1px 0;
+  border-radius: 10px;
+  top: 20px;
+  right: 20px;
+}
+
+.themeButton div {
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  position: relative;
+}
+
+.themeButtonLight {
+  background-color: black;
+}
+
+.themeButtonLight div {
+  background-color: white;
+  float: left;
+}
+
+.themeButtonDark {
+  background-color: white;
+}
+
+.themeButtonDark div {
+  background-color: black;
+  float: right;
 }
 /*# sourceMappingURL=headerStyle.module.css.map */
