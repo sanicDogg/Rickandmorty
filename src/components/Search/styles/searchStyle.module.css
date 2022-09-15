@@ -31,4 +31,13 @@
       align-self: center;
   text-align: center;
 }
+
+.searchDark {
+  background-color: darkgrey;
+}
+
+.searchDark .search {
+  background-color: black;
+  color: white;
+}
 /*# sourceMappingURL=searchStyle.module.css.map */

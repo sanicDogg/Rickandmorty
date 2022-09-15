@@ -21,9 +21,18 @@ border-bottom-left-radius: 30px;
 border: 1px solid lightgrey;
 left: 30%;
 right: 30%;
-&__errorMessage{
-  color: red;
-  align-self: center;
-  text-align: center;
+  &__errorMessage{
+    color: red;
+    align-self: center;
+    text-align: center;
+  }
 }
+
+.searchDark{
+  background-color: darkgrey;
+  .search {
+  background-color: black;
+  color: white;
+  }
+  
 }

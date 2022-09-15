@@ -59,19 +59,6 @@ header button:hover {
   color: #588b8b;
 }
 
-.headerDark {
-  background-color: black;
-}
-
-.headerDark__logo {
-  font-size: 35px;
-  display: inline-block;
-}
-
-.headerDark .buttonDark {
-  background-color: black;
-}
-
 .themeButton {
   position: absolute;
   width: 50px;
@@ -88,21 +75,37 @@ header button:hover {
   position: relative;
 }
 
-.themeButtonLight {
+.headerDark {
   background-color: black;
 }
 
-.themeButtonLight div {
-  background-color: white;
-  float: left;
-}
-
-.themeButtonDark {
+.headerDark .themeButton {
   background-color: white;
 }
 
-.themeButtonDark div {
+.headerDark button {
+  background-color: black;
+}
+
+.headerDark .greeting {
+  background-color: black;
+}
+
+.headerDark div {
   background-color: black;
   float: right;
+}
+
+.headerLight .greeting {
+  background: #ffd5c2;
+}
+
+.headerLight .themeButton {
+  background-color: black;
+}
+
+.headerLight div {
+  background-color: white;
+  float: left;
 }
 /*# sourceMappingURL=headerStyle.module.css.map */

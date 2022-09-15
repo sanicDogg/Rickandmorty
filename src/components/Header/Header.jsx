@@ -4,7 +4,7 @@ import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import { logout, selectLoggedIn, selectUser } from "../../features";
 import { ThemeContext } from "../../app/themeContext";
-import { chooseClass } from "../../utils";
+import { chooseThemeClass } from "../../utils";
 
 import classes from "./styles/headerStyle.module.css";
 
@@ -34,29 +34,28 @@ export function Header() {
       <div className={classes.greeting}>Привет, {userName}!</div>
       <Link to="/favorites">Избранное</Link>
       <Link to="/history">История</Link>
-      <button
-        className={chooseClass(theme, classes.buttonDark, "")}
-        type="button"
-        onClick={handleLogout}
-      >
+      <button type="button" onClick={handleLogout}>
         Выйти
       </button>
     </>
   );
 
   return (
-    <header className={chooseClass(theme, classes.headerDark, "")}>
-      <Link
-        to="/"
-        className={chooseClass(theme, classes.headerDark__logo, classes.logo)}
-      >
+    <header
+      className={chooseThemeClass(
+        theme,
+        classes.headerDark,
+        classes.headerLight
+      )}
+    >
+      <Link to="/" className={classes.logo}>
         Rick and Morty
       </Link>
       <nav className={classes.menu}>
         {isLoggedIn ? <LoggedIn userName={user.username} /> : <Guest />}
       </nav>
       <button
-        className={classes.themeBtn}
+        className={classes.themeButton}
         onClick={changeTheme}
         type="button"
       >

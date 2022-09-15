@@ -36,7 +36,7 @@ export function authenticate(username, password) {
   }
 }
 
-export function chooseClass(theme, darkClass, lightClass) {
+export function chooseThemeClass(theme, darkClass, lightClass) {
   return theme === DARK_THEME ? darkClass : lightClass;
 }
 
