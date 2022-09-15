@@ -33,6 +33,8 @@ export function SearchItem({ theme, id, name, hideSearchField }) {
   );
 }
 SearchItem.propTypes = {
+  theme: PropTypes.string,
   id: PropTypes.number,
   name: PropTypes.string,
+  hideSearchField: PropTypes.bool
 };
