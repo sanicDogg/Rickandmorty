@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useState, useContext } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 import { DebounceInput } from "react-debounce-input";
 
@@ -7,9 +7,14 @@ import { useGetCharacterByNameQuery } from "../../features/api/apiSlice";
 import { addToHistory, selectLoggedIn } from "../../features";
 import { SearchItem } from "./SearchItem";
 
+import { ThemeContext } from "../../app/themeContext";
+import { chooseThemeClass } from "../../utils";
+
 import classes from "./styles/searchStyle.module.css";
 
 export function Search() {
+  const { theme } = useContext(ThemeContext);
+
   const [searchValue, setSearchValue] = useState("");
 
   const [isVisibleSearchField, setSearchFieldVisible] = useState(false);
@@ -49,7 +54,11 @@ export function Search() {
   if (isLoading) return <h1>Loading...</h1>;
 
   return (
-    <div className={classes.container}>
+    <div
+      className={`${chooseThemeClass(theme, classes.searchDark)} ${
+        classes.container
+      }`}
+    >
       <DebounceInput
         onKeyDown={onKeyPress}
         minLength={2}
@@ -71,6 +80,7 @@ export function Search() {
             .filter((card, index) => index < 5)
             .map((card) => (
               <SearchItem
+                theme={theme}
                 key={card.id}
                 id={card.id}
                 name={card.name}

@@ -1,26 +1,25 @@
 .searchItem {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  align-items: center;
+  justify-content: space-between;
   border-bottom: 1px solid black;
 }
-
 .searchItem:not(:last-child) {
   margin-bottom: 30px;
 }
-
 .searchItem__name {
   text-decoration: none;
   color: black;
 }
-
 .searchItem__name:hover {
   text-decoration: underline;
 }
+
+.searchItem_dark {
+  border: none;
+}
+.searchItem_dark a {
+  color: #E2FCEF;
+}
+
 /*# sourceMappingURL=searchItemStyles.module.css.map */

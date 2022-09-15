@@ -19,12 +19,12 @@ export function Home() {
     });
   };
   return (
-    <main>
+    <>
       <Search />
       <Cards cardsData={cards || []} />
       <button onClick={onAddId} type="button" className={classes.addMoreButton}>
         посмотреть еще
       </button>
-    </main>
+    </>
   );
 }

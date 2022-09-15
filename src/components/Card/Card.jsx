@@ -1,18 +1,26 @@
+import { useContext } from "react";
 import PropTypes from "prop-types";
 
 import { CardButton } from "./cardButton";
 import { LikeButton } from "../LikeButton";
 import { useGetCharacterQuery } from "../../features/api/apiSlice";
+import { ThemeContext } from "../../app/themeContext";
+
+import { chooseThemeClass } from "../../utils";
 
 import classes from "./styles/cardStyle.module.css";
 
 export function Card({ id, isDescButtonVisible = true }) {
+  const { theme } = useContext(ThemeContext);
+
   const { data = {}, isLoading } = useGetCharacterQuery(id);
 
   if (isLoading) return <h1>Loading...</h1>;
 
   return (
-    <div className={classes.card}>
+    <div
+      className={`${chooseThemeClass(theme, classes.darkCard)} ${classes.card}`}
+    >
       <img className={classes.card__img} src={data.image} alt={data.name} />
       {isDescButtonVisible && (
         <div className={classes.card__button}>

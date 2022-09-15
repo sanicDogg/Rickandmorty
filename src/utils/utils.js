@@ -1,5 +1,7 @@
 export function getLoggedUser() {
-  const nameOfAuthedUser = localStorage.getItem("authed") ? JSON.parse(localStorage.getItem("authed")) : "";
+  const nameOfAuthedUser = localStorage.getItem("authed")
+    ? JSON.parse(localStorage.getItem("authed"))
+    : "";
 
   if (nameOfAuthedUser) {
     const users = JSON.parse(localStorage.getItem("users"));
@@ -18,7 +20,9 @@ export function toggleObjectField(object, property) {
 }
 
 export function isUsernameExists(username) {
-  const users = localStorage.getItem("users") ? JSON.parse(localStorage.getItem("users")) : [];
+  const users = localStorage.getItem("users")
+    ? JSON.parse(localStorage.getItem("users"))
+    : [];
 
   return users.hasOwnProperty(username);
 }
@@ -32,5 +36,11 @@ export function authenticate(username, password) {
   }
 }
 
+export function chooseThemeClass(theme, darkClass, lightClass) {
+  return theme === DARK_THEME ? darkClass : lightClass;
+}
+
 export const LOGIN_FORM = "LOGIN_FORM";
 export const REGISTER_FORM = "REGISTER_FORM";
+export const DARK_THEME = "DARK_THEME";
+export const LIGHT_THEME = "LIGHT_THEME";

@@ -1,3 +1,5 @@
+@import "../../../../styles/_var.scss";
+
 .searchItem{
   display: flex;
   align-items: center;
@@ -12,5 +14,13 @@
     &:hover{
       text-decoration:underline;
  }
+  }
+}
+
+.searchItem_dark {
+  border: none;
+
+  a {
+    color: $searchResultsText_dark;
   }
 }
