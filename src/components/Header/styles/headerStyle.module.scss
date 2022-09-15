@@ -7,9 +7,10 @@ header {
   padding: 50px 70px;
   margin-bottom: 20px;
   font-size: 20px;
-  background: $bgColor;
+  background: $bgColor_light;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
+  position: relative;
 
   a {
     text-decoration: none;
@@ -21,7 +22,7 @@ header {
 
   button {
     color: $linkColor;
-    background: $bgColor;
+    background: $bgColor_light;
     border: none;
     font-size: inherit;
 
@@ -43,6 +44,7 @@ header {
 
   .greeting {
     color: $greetingColor;
+
   }
 
   a {
@@ -50,5 +52,61 @@ header {
     &:visited, &:link {
       color: $linkColor;
     }
+  }
+}
+
+
+.themeButton {
+  position: absolute;
+  width: 50px;
+  padding: 1px 0;
+  border-radius: 10px;
+  top: 20px;
+  right: 20px;
+
+  div {
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    position: relative;
+  }
+}
+
+.headerDark {
+  background-color: $blackColor;
+
+  .themeButton {
+    background-color: $linkColor;
+    div {
+      background-color: $whiteColor;
+    }
+  }
+
+  button {
+    background-color: $blackColor;
+  }
+
+  .greeting {
+    background-color: $blackColor;
+  }
+
+  div {
+    background-color: $blackColor;
+    float: right;
+  }
+}
+
+.headerLight {
+  .greeting {
+    background: $bgColor_light;
+  }
+
+  .themeButton {
+    background-color: $greetingColor;
+  }
+
+  div {
+    background-color: white;
+    float: left;
   }
 }
