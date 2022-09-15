@@ -7,7 +7,7 @@ header {
   padding: 50px 70px;
   margin-bottom: 20px;
   font-size: 20px;
-  background: $bgColor;
+  background: $bgColor_light;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   position: relative;
@@ -22,7 +22,7 @@ header {
 
   button {
     color: $linkColor;
-    background: $bgColor;
+    background: $bgColor_light;
     border: none;
     font-size: inherit;
 
@@ -56,48 +56,57 @@ header {
 }
 
 
-.themeButton{
-position: absolute;
-width: 50px;
-padding: 1px 0;
-border-radius: 10px;
-top: 20px;
-right: 20px;
- div{
+.themeButton {
+  position: absolute;
+  width: 50px;
+  padding: 1px 0;
+  border-radius: 10px;
+  top: 20px;
+  right: 20px;
+
+  div {
     border-radius: 50%;
     height: 20px;
     width: 20px;
     position: relative;
+  }
+}
+
+.headerDark {
+  background-color: $blackColor;
+
+  .themeButton {
+    background-color: $linkColor;
+    div {
+      background-color: $whiteColor;
     }
+  }
+
+  button {
+    background-color: $blackColor;
+  }
+
+  .greeting {
+    background-color: $blackColor;
+  }
+
+  div {
+    background-color: $blackColor;
+    float: right;
+  }
 }
 
-.headerDark{
-  background-color: black;
+.headerLight {
+  .greeting {
+    background: $bgColor_light;
+  }
 
-  .themeButton{
+  .themeButton {
+    background-color: $greetingColor;
+  }
+
+  div {
     background-color: white;
-  }
-  button{
-    background-color: black;
-  }
-  .greeting{
-    background-color: black;
-  }
-    div{ 
-      background-color: black;  
-      float: right;
+    float: left;
   }
 }
-
-.headerLight{
-  .greeting{
-    background: $bgColor;
-  }
-  .themeButton{
-    background-color: black;
-  }
-    div{ 
-       background-color: white;  
-       float: left;
-      }
-  }

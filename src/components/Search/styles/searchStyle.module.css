@@ -6,8 +6,7 @@
 .search {
   padding: 20px 10px;
   width: 100%;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   font-size: 18px;
   text-align: center;
 }
@@ -23,21 +22,26 @@
   left: 30%;
   right: 30%;
 }
-
 .searchResults__errorMessage {
   color: red;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+  align-self: center;
   text-align: center;
 }
 
 .searchDark {
-  background-color: darkgrey;
+  background-color: #291F1E;
 }
-
 .searchDark .search {
+  border-color: white;
   background-color: black;
   color: white;
 }
+.searchDark .searchResults {
+  background: #402039;
+  color: #E2FCEF;
+}
+.searchDark .searchResults__errorMessage {
+  color: #ff2e2e;
+}
+
 /*# sourceMappingURL=searchStyle.module.css.map */

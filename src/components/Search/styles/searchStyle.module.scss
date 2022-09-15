@@ -1,3 +1,5 @@
+@import "../../../styles/_var.scss";
+
 .container {
   padding: 50px;
   position: relative;
@@ -11,28 +13,39 @@
   text-align: center;
 }
 
-.searchResults{
-position: absolute;
-z-index: 2;
-background-color: white;
-padding: 40px;
-border-bottom-right-radius: 30px;
-border-bottom-left-radius: 30px;
-border: 1px solid lightgrey;
-left: 30%;
-right: 30%;
-  &__errorMessage{
+.searchResults {
+  position: absolute;
+  z-index: 2;
+  background-color: white;
+  padding: 40px;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border: 1px solid lightgrey;
+  left: 30%;
+  right: 30%;
+
+  &__errorMessage {
     color: red;
     align-self: center;
     text-align: center;
   }
 }
 
-.searchDark{
-  background-color: darkgrey;
+.searchDark {
+  background-color: $bgColor_dark;
+
   .search {
-  background-color: black;
-  color: white;
+    border-color: $whiteColor;
+    background-color: black;
+    color: white;
   }
-  
+
+  .searchResults {
+    background: $searchResults_dark;
+    color: $searchResultsText_dark;
+
+    &__errorMessage {
+      color: $searchResultsError_dark;
+    }
+  }
 }

@@ -76,6 +76,7 @@ export function Search() {
             .filter((card, index) => index < 5)
             .map((card) => (
               <SearchItem
+                theme={theme}
                 key={card.id}
                 id={card.id}
                 name={card.name}

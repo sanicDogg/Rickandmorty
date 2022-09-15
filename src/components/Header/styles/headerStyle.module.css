@@ -1,13 +1,7 @@
 header {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
   padding: 50px 70px;
   margin-bottom: 20px;
   font-size: 20px;
@@ -16,22 +10,18 @@ header {
   border-bottom-right-radius: 20px;
   position: relative;
 }
-
 header a {
   text-decoration: none;
 }
-
 header a:visited, header a:link {
   color: #c8553d;
 }
-
 header button {
   color: #588b8b;
   background: #ffd5c2;
   border: none;
   font-size: inherit;
 }
-
 header button:hover {
   cursor: pointer;
 }
@@ -42,19 +32,13 @@ header button:hover {
 }
 
 .menu {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   gap: 80px;
 }
-
 .menu .greeting {
   color: #d37764;
 }
-
 .menu a:visited, .menu a:link {
   color: #588b8b;
 }
@@ -67,7 +51,6 @@ header button:hover {
   top: 20px;
   right: 20px;
 }
-
 .themeButton div {
   border-radius: 50%;
   height: 20px;
@@ -78,19 +61,18 @@ header button:hover {
 .headerDark {
   background-color: black;
 }
-
 .headerDark .themeButton {
+  background-color: #588b8b;
+}
+.headerDark .themeButton div {
   background-color: white;
 }
-
 .headerDark button {
   background-color: black;
 }
-
 .headerDark .greeting {
   background-color: black;
 }
-
 .headerDark div {
   background-color: black;
   float: right;
@@ -99,13 +81,12 @@ header button:hover {
 .headerLight .greeting {
   background: #ffd5c2;
 }
-
 .headerLight .themeButton {
-  background-color: black;
+  background-color: #d37764;
 }
-
 .headerLight div {
   background-color: white;
   float: left;
 }
+
 /*# sourceMappingURL=headerStyle.module.css.map */

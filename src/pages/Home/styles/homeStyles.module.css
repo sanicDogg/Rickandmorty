@@ -6,13 +6,13 @@
   border: none;
   border-radius: 15px;
   background-color: #3b5998;
-  color: #ffff;
+  color: white;
   cursor: pointer;
   margin-bottom: 20px;
   margin-top: 20px;
 }
-
 .addMoreButton:hover {
   padding: 15px;
 }
+
 /*# sourceMappingURL=homeStyles.module.css.map */

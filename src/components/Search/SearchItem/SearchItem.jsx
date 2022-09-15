@@ -3,11 +3,12 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import { addToHistory } from "../../../features";
+import { chooseThemeClass } from "../../../utils";
 import { CardButton } from "../../Card/cardButton";
 
 import classes from "./styles/searchItemStyles.module.css";
 
-export function SearchItem({ id, name, hideSearchField }) {
+export function SearchItem({ theme, id, name, hideSearchField }) {
   const dispatch = useDispatch();
 
   const onLinkClick = () => {
@@ -17,7 +18,7 @@ export function SearchItem({ id, name, hideSearchField }) {
   };
 
   return (
-    <div className={classes.searchItem}>
+    <div className={`${chooseThemeClass(theme, classes.searchItem_dark)} ${classes.searchItem}`}>
       <Link
         onClick={onLinkClick}
         to={`/search/${name}`}
