@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { DebounceInput } from "react-debounce-input";
 
 import { useGetCharacterByNameQuery } from "../../features/api/apiSlice";
-import { addToHistory } from "../../features";
+import { addToHistory, selectLoggedIn } from "../../features";
 import { SearchItem } from "./SearchItem";
 
 import classes from "./styles/searchStyle.module.css";
@@ -13,6 +13,8 @@ export function Search() {
   const [searchValue, setSearchValue] = useState("");
 
   const [isVisibleSearchField, setSearchFieldVisible] = useState(false);
+
+  const isLoggedIn = useSelector(selectLoggedIn);
 
   const navigate = useNavigate();
 
@@ -37,7 +39,9 @@ export function Search() {
   const onKeyPress = (event) => {
     if (event.key === "Enter" && searchValue !== "") {
       hideSearchField();
-      dispatch(addToHistory(searchValue));
+      if (isLoggedIn) {
+        dispatch(addToHistory(searchValue));
+      }
       navigate(`/search/${searchValue}`);
     }
   };

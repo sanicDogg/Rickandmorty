@@ -1,19 +1,25 @@
+import classes from "./styles/FormLoginPassword.module.css";
+
 export function FormLoginPassword({
-  onSubmit,
-  onUsernameChange,
-  onPasswordChange,
-}) {
+                                    onSubmit,
+                                    onUsernameChange,
+                                    onPasswordChange,
+                                  }) {
   return (
-    <form onSubmit={onSubmit}>
-      <label>
-        Логин:
-        <input type="text" onChange={onUsernameChange} />
-      </label>
-      <label>
-        Пароль:
-        <input type="password" onChange={onPasswordChange} />
-      </label>
-      <input type="submit" value="Отправить" />
-    </form>
+    <div className={classes.container}>
+      <form onSubmit={onSubmit} className={classes.form}>
+        <div className={classes.formElement}>
+          <div>Логин</div>
+          <input type="text" onChange={onUsernameChange}/>
+        </div>
+        <div className={classes.formElement}>
+          <div>Пароль</div>
+          <input type="password" onChange={onPasswordChange}/>
+        </div>
+        <div className={`${classes.formElement} ${classes.formSubmit}`}>
+          <input type="submit" value="Отправить"/>
+        </div>
+      </form>
+    </div>
   );
 }

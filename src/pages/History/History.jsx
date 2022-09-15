@@ -8,11 +8,11 @@ import classes from "./styles/history.module.css";
 export function History() {
   const history = useSelector(selectHistory);
 
-  const isHistory = Boolean(history.leangth);
+  const isHistory = Boolean(history.length);
 
   return (
     <div className={classes.history}>
-      <h2 className={classes.history__header}>
+      <h2 className={classes.historyHeader}>
         История поиска {isHistory ? "" : "пуста"}
       </h2>
       <ul>
