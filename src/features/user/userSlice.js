@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { createSelector } from "reselect";
 import { toggleObjectField } from "../../utils";
 
 const initialState = {
@@ -42,8 +43,12 @@ export const selectUser = (state) => state.user.userData;
 
 export const selectLoggedIn = (state) => state.user.loggedIn;
 
-export const selectFavorites = (state) =>
-  Object.keys(state.user.userData.favorites);
+export const selectFavoritesObj = (state) => state.user.userData.favorites;
+
+export const selectFavorites = createSelector(
+  selectFavoritesObj,
+  (favoritesObj) => Object.keys(favoritesObj)
+);
 
 export const selectHistory = (state) => state.user.userData.history;
 
