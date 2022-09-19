@@ -1,7 +1,9 @@
 import PropTypes from "prop-types";
-import { CardButton } from "../Card/cardButton";
+import { lazy, Suspense } from "react";
 import { LikeButton } from "../LikeButton";
 import classes from "./styles/searchResult.module.css";
+
+const CardButton = lazy(() => import("../Card/cardButton/CardButton"));
 
 export function SearchResult({ image, name, isLoading, id, location }) {
   if (isLoading) return <h1>Loading...</h1>;
@@ -15,7 +17,9 @@ export function SearchResult({ image, name, isLoading, id, location }) {
         <LikeButton id={id} />
       </div>
       <div className={classes.searchResult__button}>
-        <CardButton text="подробнее" id={id} />
+        <Suspense fallback={<div>...загрузка</div>}>
+          <CardButton text="подробнее" id={id} />
+        </Suspense>
       </div>
     </div>
   );
