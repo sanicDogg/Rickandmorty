@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { CardButton } from "../Card/cardButton";
+import CardButton from "../Card/cardButton/CardButton";
 import { LikeButton } from "../LikeButton";
 import classes from "./styles/searchResult.module.css";
 
