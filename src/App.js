@@ -14,6 +14,7 @@ import {
   History,
 } from "./pages";
 import "./App.css";
+import { ProtectedRoute } from "./pages/ProtectedRoute";
 
 function App() {
   const dispatch = useDispatch();
@@ -24,16 +25,20 @@ function App() {
     <>
       <ErrorBoundary>
         <ThemeProvider>
-          <Header />
+          <Header/>
           <main>
             <Routes>
-              <Route path="/*" element={<Home />} />
-              <Route path="/favorites" element={<Favorites />} />
-              <Route path="/signup" element={<SignUp />} />
-              <Route path="/signin" element={<SignIn />} />
-              <Route path="/character/:charId" element={<Character />} />
-              <Route path="/search/:searchValue" element={<SearchPage />} />
-              <Route path="/history" element={<History />} />
+              <Route path="/*" element={<Home/>}/>
+              <Route path="/character/:charId" element={<Character/>}/>
+              <Route path="/search/:searchValue" element={<SearchPage/>}/>
+              <Route element={<ProtectedRoute invertedFlag/>}>
+                <Route path="/signup" element={<SignUp/>}/>
+                <Route path="/signin" element={<SignIn/>}/>
+              </Route>
+              <Route element={<ProtectedRoute redirectPath={"/signup"}/>}>
+                <Route path="/favorites" element={<Favorites/>}/>
+                <Route path="/history" element={<History/>}/>
+              </Route>
             </Routes>
           </main>
         </ThemeProvider>
@@ -41,4 +46,5 @@ function App() {
     </>
   );
 }
+
 export default App;

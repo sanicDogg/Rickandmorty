@@ -1,10 +1,12 @@
-import { useState, useContext } from "react";
+import { skipToken } from "@reduxjs/toolkit/query";
+import { useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { DebounceInput } from "react-debounce-input";
 
 import { useGetCharacterByNameQuery } from "../../features/api/apiSlice";
 import { addToHistory, selectLoggedIn } from "../../features";
+import { useSearch } from "../../hooks/useSearch";
 import { SearchItem } from "./SearchItem";
 
 import { ThemeContext } from "../../app/themeContext";
@@ -15,9 +17,7 @@ import classes from "./styles/searchStyle.module.css";
 export function Search() {
   const { theme } = useContext(ThemeContext);
 
-  const [searchValue, setSearchValue] = useState("");
-
-  const [isVisibleSearchField, setSearchFieldVisible] = useState(false);
+  const { hideSearchField, search, isVisibleSearchField, searchValue } = useSearch();
 
   const isLoggedIn = useSelector(selectLoggedIn);
 
@@ -25,33 +25,27 @@ export function Search() {
 
   const dispatch = useDispatch();
 
-  const hideSearchField = () => {
-    setSearchFieldVisible(false);
-  };
-
-  const search = (newValue) => {
-    setSearchValue(newValue);
-    setSearchFieldVisible(newValue !== "");
-  };
-
   const {
     data = [],
     isError,
     isLoading,
-    isSuccess,
-  } = useGetCharacterByNameQuery(searchValue);
+    isFetching,
+    isSuccess = false,
+  } = useGetCharacterByNameQuery(searchValue ?? skipToken);
+
+  const hideAndPushToHistory = () => {
+    hideSearchField();
+    if (isLoggedIn) {
+      dispatch(addToHistory(searchValue));
+    }
+  }
 
   const onKeyPress = (event) => {
     if (event.key === "Enter" && searchValue !== "") {
-      hideSearchField();
-      if (isLoggedIn) {
-        dispatch(addToHistory(searchValue));
-      }
+      hideAndPushToHistory();
       navigate(`/search/${searchValue}`);
     }
   };
-
-  if (isLoading) return <h1>Loading...</h1>;
 
   return (
     <div
@@ -62,21 +56,22 @@ export function Search() {
       <DebounceInput
         onKeyDown={onKeyPress}
         minLength={2}
-        debounceTimeout={500}
+        debounceTimeout={200}
         placeholder="Панель поиска"
         className={classes.search}
         onChange={(event) => search(event.target.value)}
       />
-      {isError && (
+
+      {(!isLoading && !isFetching && isError) && (
         <nav className={classes.searchResults}>
           <p className={classes.searchResults__errorMessage}>
             по данному запросу ничего не найдено
           </p>
         </nav>
       )}
-      {isSuccess && isVisibleSearchField && (
+      {!isFetching && isSuccess && isVisibleSearchField && (
         <nav className={classes.searchResults}>
-          {data.results
+          {data
             .filter((card, index) => index < 5)
             .map((card) => (
               <SearchItem
@@ -84,11 +79,12 @@ export function Search() {
                 key={card.id}
                 id={card.id}
                 name={card.name}
-                hideleSearchFieldVisible={hideSearchField}
+                linkClickHandler={hideAndPushToHistory}
               />
             ))}
         </nav>
       )}
+
     </div>
   );
 }

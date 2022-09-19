@@ -14,6 +14,7 @@ export const apiSlice = createApi({
     }),
     getCharacterByName: builder.query({
       query: (name) => `/?name=${name}`,
+      transformResponse: responseData => responseData.results
     }),
   }),
 });
