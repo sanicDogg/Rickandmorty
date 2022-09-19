@@ -1,3 +1,4 @@
+import { skipToken } from "@reduxjs/toolkit/query";
 import { useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
@@ -28,8 +29,9 @@ export function Search() {
     data = [],
     isError,
     isLoading,
-    isSuccess,
-  } = useGetCharacterByNameQuery(searchValue);
+    isFetching,
+    isSuccess = false,
+  } = useGetCharacterByNameQuery(searchValue ?? skipToken);
 
   const hideAndPushToHistory = () => {
     hideSearchField();
@@ -45,8 +47,6 @@ export function Search() {
     }
   };
 
-  if (isLoading) return <h1>Loading...</h1>;
-
   return (
     <div
       className={`${chooseThemeClass(theme, classes.searchDark)} ${
@@ -61,14 +61,15 @@ export function Search() {
         className={classes.search}
         onChange={(event) => search(event.target.value)}
       />
-      {isError && (
+
+      {(!isLoading && !isFetching && isError) && (
         <nav className={classes.searchResults}>
           <p className={classes.searchResults__errorMessage}>
             по данному запросу ничего не найдено
           </p>
         </nav>
       )}
-      {isSuccess && isVisibleSearchField && (
+      {!isFetching && isSuccess && isVisibleSearchField && (
         <nav className={classes.searchResults}>
           {data
             .filter((card, index) => index < 5)
@@ -83,6 +84,7 @@ export function Search() {
             ))}
         </nav>
       )}
+
     </div>
   );
 }

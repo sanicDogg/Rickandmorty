@@ -22,7 +22,7 @@ export function SearchPage() {
       <Search />
       {isSuccess && (
         <div className={classes.searchPage__resultContainer}>
-          {data.results.map((card) => (
+          {data.map((card) => (
             <SearchResult
               key={card.id}
               id={card.id}

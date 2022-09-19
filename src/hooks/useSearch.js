@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export function useSearch() {
-  const [searchValue, setSearchValue] = useState("");
+  const [searchValue, setSearchValue] = useState();
   const [isVisibleSearchField, setSearchFieldVisible] = useState(false);
 
   const hideSearchField = () => {
