@@ -70,7 +70,7 @@ export function Search() {
       )}
       {isSuccess && isVisibleSearchField && (
         <nav className={classes.searchResults}>
-          {data.results
+          {data
             .filter((card, index) => index < 5)
             .map((card) => (
               <SearchItem
