@@ -1,7 +1,6 @@
-import { useContext } from "react";
+import { lazy, Suspense, useContext } from "react";
 import PropTypes from "prop-types";
 
-import { CardButton } from "./cardButton";
 import { LikeButton } from "../LikeButton";
 import { useGetCharacterQuery } from "../../features/api/apiSlice";
 import { ThemeContext } from "../../app/themeContext";
@@ -9,6 +8,8 @@ import { ThemeContext } from "../../app/themeContext";
 import { chooseThemeClass } from "../../utils";
 
 import classes from "./styles/cardStyle.module.css";
+
+const CardButton = lazy(() => import("./cardButton/CardButton.jsx"));
 
 export function Card({ id, isDescButtonVisible = true }) {
   const { theme } = useContext(ThemeContext);
@@ -24,7 +25,9 @@ export function Card({ id, isDescButtonVisible = true }) {
       <img className={classes.card__img} src={data.image} alt={data.name} />
       {isDescButtonVisible && (
         <div className={classes.card__button}>
-          <CardButton text="подробнее" id={id} />
+          <Suspense fallback={<div>...загрузка</div>}>
+            <CardButton text="подробнее" id={id} />
+          </Suspense>
         </div>
       )}
       <div className={classes.card__like}>
