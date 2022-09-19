@@ -4,9 +4,12 @@ import { useDispatch } from "react-redux";
 
 import { addToHistory } from "../../../features";
 import { chooseThemeClass } from "../../../utils";
-import { CardButton } from "../../Card/cardButton";
+// import { CardButton } from "../../Card/cardButton";
 
 import classes from "./styles/searchItemStyles.module.css";
+import { lazy, Suspense } from "react";
+
+const CardButton = lazy(() => import("../../Card/cardButton/CardButton"));
 
 export function SearchItem({ theme, id, name, hideSearchField }) {
   const dispatch = useDispatch();
@@ -18,7 +21,11 @@ export function SearchItem({ theme, id, name, hideSearchField }) {
   };
 
   return (
-    <div className={`${chooseThemeClass(theme, classes.searchItem_dark)} ${classes.searchItem}`}>
+    <div
+      className={`${chooseThemeClass(theme, classes.searchItem_dark)} ${
+        classes.searchItem
+      }`}
+    >
       <Link
         onClick={onLinkClick}
         to={`/search/${name}`}
@@ -27,7 +34,9 @@ export function SearchItem({ theme, id, name, hideSearchField }) {
         {name}
       </Link>
       <div>
-        <CardButton text="узнать больше" id={id} />
+        <Suspense fallback={<div>...загрузка</div>}>
+          <CardButton text="узнать больше" id={id} />
+        </Suspense>
       </div>
     </div>
   );
@@ -36,5 +45,5 @@ SearchItem.propTypes = {
   theme: PropTypes.string,
   id: PropTypes.number,
   name: PropTypes.string,
-  hideSearchField: PropTypes.bool
+  hideSearchField: PropTypes.bool,
 };
