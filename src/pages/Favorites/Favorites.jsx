@@ -1,19 +1,15 @@
 import { useSelector } from "react-redux";
-import { Navigate } from "react-router";
-
-import { selectFavorites, selectLoggedIn } from "../../features";
 
 import { Cards } from "../../components";
 
+import { selectFavorites } from "../../features";
+
 export function Favorites() {
-  const isLoggedIn = useSelector(selectLoggedIn);
   const cards = useSelector(selectFavorites);
 
-  return isLoggedIn ? (
+  return (
     <div>
       <Cards cardsData={cards} />
     </div>
-  ) : (
-    <Navigate to={"/signup"} />
   );
 }
