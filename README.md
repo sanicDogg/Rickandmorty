@@ -42,7 +42,7 @@
 
 ---
 
-###ссылки
+### ссылки
 
 - [репозиторий на GitHub](https://github.com/sanicDogg/Rickandmorty)
 
