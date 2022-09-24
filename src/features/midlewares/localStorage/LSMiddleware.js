@@ -24,7 +24,7 @@ export const LSMiddleware = (store) => (next) => (action) => {
       return next(action);
     }
     case setUser.match(action): {
-      const users = JSON.parse(localStorage.getItem("users"));
+      const users = JSON.parse(localStorage.getItem("users")) || {};
 
       const newUser = action.payload;
 
